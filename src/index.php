@@ -2,11 +2,11 @@
 <html>
     <head>
         <title> Sport Store Web </title>
-</head>
+    </head>
 
 <body>
-    <?php include('includes/header.php'); ?>
-    <?php include('includes/navigation.php'); ?>
-    <?php include('includes/footer.php'); ?>
+    <?php include('includes/header.html'); ?>
+    <?php include('includes/navigation.html'); ?>
+    <?php include('includes/footer.html'); ?>
 </body>
 </html>
