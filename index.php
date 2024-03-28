@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="/Sport-Store-/css/styles.css";/>
+    <link rel="stylesheet" href="/Sport-Store-/css/Landing.css";/>
 </head>
 <body>
-    <?php include("../includes/header.html"); ?>
-    
+    <?php include("./src/includes/header.html"); ?>
+    <?php include("./src/includes/navigation.html");?>
     <main>
         <h2>Experience the Excellence of Sport Store Web</h2>
         <p>
@@ -23,12 +24,12 @@
         </ul>
     </main>
         <div id="button">
-            <a href="Login.html"><button>Login</button></a>
-            <a href="SignUp.html"><button>Sign up</button></a>
+            <a href="src/views/Login.php"><button>Login</button></a>
+            <a href="src/views/SignUp.html"><button>Sign up</button></a>
         </div>
 
      <img id="sport-image" src="/Sport-Store-/assets/img/Sport.png" alt="Sport Image"/>
     
-    <?php include("../includes/footer.html")?>
+    <?php include("./src/includes/footer.html")?>
 </body>
 </html>
