@@ -5,6 +5,19 @@ body{
     align-items:center;
     height:100vh;
 }
+.back-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.back-btn:hover {
+    color: #007bff;
+}
+
 
 h2{
     text-align: center;
@@ -35,6 +48,16 @@ lable{
     padding:10px;
 }
 
-button {
-    margin-left:100px;
+.back-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
 }
+
+.back-btn:hover {
+    color: #007bff; /* Change color on hover if needed */
+}
+
