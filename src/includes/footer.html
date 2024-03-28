@@ -4,23 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sport Store Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-            footer {
-                background-color: #333;
-                color: #fff;
-                padding: 20px;
-                text-align: center;
-            }
-            footer p {
-                margin: 0;
-            }
-        </style>
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icons i {
+            margin-left: 10px; 
+        }
+    </style>
 </head>
 <body>
     <footer>
-        
         <p>&copy; 2024 Sport Store Berhad. All rights reserved.</p>
+        <div class="social-icons">
+            <p>Follow Our Social Media</p>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
     </footer>
-    
 </body>
 </html>
