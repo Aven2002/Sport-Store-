@@ -41,53 +41,56 @@
 </body>
 </html>
 
-
 <?php
-    // Obtain Connection
-    include("../../database.php");
+// Obtain Connection
+include("../../database.php");
 
-    // Call Method & Validate input
-    if($_SERVER["REQUEST_METHOD"]=="POST") 
+// Call Method & Validate input
+if($_SERVER["REQUEST_METHOD"]=="POST") 
+{
+    // Check if all fields are set and not empty
+    if(!empty($_POST["username"]) && !empty($_POST["password"]) &&
+    !empty($_POST["fullName"]) && !empty($_POST["email"]) &&
+    !empty($_POST["contactNum"]) && !empty($_POST["address"])) 
     {
-        // Check if all fields are set
-        if(isset($_POST["username"]) && isset($_POST["password"]) &&
-        isset($_POST["fullName"]) && isset($_POST["email"]) &&
-        isset($_POST["contactNum"]) && isset($_POST["address"])) 
-        {
-            // Process form submission
-            $username = mysqli_real_escape_string($conn, $_POST["username"]);
-            $password = mysqli_real_escape_string($conn, $_POST["password"]);
-            $fullName = mysqli_real_escape_string($conn, $_POST["fullName"]);
-            $email = mysqli_real_escape_string($conn, $_POST["email"]);
-            $contactNum = mysqli_real_escape_string($conn, $_POST["contactNum"]);
-            $address = mysqli_real_escape_string($conn, $_POST["address"]);
+        // Process form submission
+        $username = mysqli_real_escape_string($conn, $_POST["username"]);
+        $password = mysqli_real_escape_string($conn, $_POST["password"]);
+        $fullName = mysqli_real_escape_string($conn, $_POST["fullName"]);
+        $email = mysqli_real_escape_string($conn, $_POST["email"]);
+        $contactNum = mysqli_real_escape_string($conn, $_POST["contactNum"]);
+        $address = mysqli_real_escape_string($conn, $_POST["address"]);
 
-            // Hash password
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // Hash password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-            // Insert into database
-            $sql = "INSERT INTO user_account (username, password, FullName, Email, ContactNum, address) VALUES (?, ?, ?, ?, ?, ?)";
-            $stmt = mysqli_prepare($conn, $sql);
+        // Insert into database
+        $sql = "INSERT INTO user_account (username, password, FullName, Email, ContactNum, address) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
 
-            // Bind parameters
-            mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashed_password, $fullName, $email, $contactNum, $address);
-            mysqli_stmt_execute($stmt);
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashed_password, $fullName, $email, $contactNum, $address);
+        mysqli_stmt_execute($stmt);
 
-            // Check if user account was created successfully
-            if (mysqli_stmt_affected_rows($stmt) > 0) {
-                echo '<script>alert("User account created successfully.");</script>';
-            } else {
-                echo '<script>alert("Error creating user account.");</script>';
-            }
-
-            // Close statement and connection
-            mysqli_stmt_close($stmt);
-            mysqli_close($conn);
+        // Check if user account was created successfully
+        if (mysqli_stmt_affected_rows($stmt) > 0) {
+            echo '<script>alert("User account created successfully.");</script>';
+            echo '<script>window.location.href = "../../index.php";</script>'; 
+            exit();
+        } else {
+            echo '<script>alert("Error creating user account.");</script>';
         }
-        else {
-            echo '<script>alert("Kindly fill up all the information.");</script>';
-        }
+
+        // Close statement and connection
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
     }
+    else {
+        echo '<script>alert("Kindly fill up all the information.");</script>';
+        echo '<script>history.go(-1);</script>';
+    }
+}
 ?>
+
 
 

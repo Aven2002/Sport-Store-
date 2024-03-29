@@ -36,36 +36,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Query to retrieve hashed password from the database
-    $sql = "SELECT password FROM user_account WHERE username = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_store_result($stmt);
+    // Check if both username and password are provided
+    if (!empty($username) && !empty($password)) {
+        // Query to retrieve hashed password from the database
+        $sql = "SELECT password FROM user_account WHERE username = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
 
-    // Check if user exists
-    if (mysqli_stmt_num_rows($stmt) == 1) {
-        mysqli_stmt_bind_result($stmt, $hashed_password);
-        mysqli_stmt_fetch($stmt);
+        // Check if user exists
+        if (mysqli_stmt_num_rows($stmt) == 1) {
+            mysqli_stmt_bind_result($stmt, $hashed_password);
+            mysqli_stmt_fetch($stmt);
 
-        // Verify password
-        if (password_verify($password, $hashed_password)) {
-            // Password is correct, redirect to authenticated page
-            header("Location: ../../index.php");
-            exit();
+            // Verify password
+            if (password_verify($password, $hashed_password)) {
+                // Password is correct, redirect to authenticated page
+                header("Location: ../../index.php");
+                exit();
+            } else {
+                // Password is incorrect, display alert
+                echo "<script>alert('Incorrect password.');</script>";
+            }
         } else {
-            // Password is incorrect, display alert
-            echo "<script>alert('Incorrect password.');</script>";
+            // User does not exist, display alert
+            echo "<script>alert('User does not exist.');</script>";
         }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
     } else {
-        // User does not exist, display alert
-        echo "<script>alert('User does not exist.');</script>";
+        // Username or password is empty, display alert
+        echo '<script>alert("Kindly fill up all the information.");</script>';
+        echo '<script>history.go(-1);</script>';
     }
 
-    // Close statement and connection
-    mysqli_stmt_close($stmt);
+    // Close connection
     mysqli_close($conn);
 }
 ?>
+
 
 
