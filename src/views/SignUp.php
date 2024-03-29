@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="signupForm" action="SignUp.php" method="post">
-        <a href="javascript:history.go(-1);" class="back-btn">
+        <a href="../../index.php" class="back-btn">
         <i class="fas fa-angle-double-left"></i>
         </a>
         <h2>Register Account</h2>

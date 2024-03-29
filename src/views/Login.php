@@ -10,8 +10,8 @@
 </head>
 <body>
     <form action="Login.php" method="post">
-    <a href="javascript:history.go(-1);" class="back-btn">
-        <i class="fas fa-angle-double-left"></i>
+        <a href="../../index.php" class="back-btn">
+            <i class="fas fa-angle-double-left"></i>
         </a>
         <h2>LOGIN</h2>
         <label>Username:</label>
@@ -19,56 +19,53 @@
         <label>Password:</label>
         <input type="password" name="password" placeholder="password" /><br>
         <div class="button-container">
-        <button type="reset">Reset</button>
-        <button type="submit">Login</button>
+            <button type="reset">Reset</button>
+            <button type="submit">Login</button>
         </div>
     </form>
 </body>
 </html>
 
 <?php
+// Include database connection file
 include("../../database.php");
 
+// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["username"])) {
-?>
-        <script>alert("Please enter your username.");</script>
-<?php
-    } elseif (empty($_POST["password"])) {
-?>
-        <script>alert("Please enter your password.");</script>
-<?php
-    } else {
-        // Process form submission
-        $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    // Get username and password from form
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-        // Hash password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // Query to retrieve hashed password from the database
+    $sql = "SELECT password FROM user_account WHERE username = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
 
-        // Insert into database
-        $sql = "INSERT INTO user_account (username, password) VALUES (?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
+    // Check if user exists
+    if (mysqli_stmt_num_rows($stmt) == 1) {
+        mysqli_stmt_bind_result($stmt, $hashed_password);
+        mysqli_stmt_fetch($stmt);
 
-        // Bind parameters
-        mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
-        mysqli_stmt_execute($stmt);
-
-        // Check if user account was created successfully
-        if (mysqli_stmt_affected_rows($stmt) > 0) {
-?>
-            <script>alert("User account created successfully.");</script>
-<?php
+        // Verify password
+        if (password_verify($password, $hashed_password)) {
+            // Password is correct, redirect to authenticated page
+            header("Location: ../../index.php");
+            exit();
         } else {
-?>
-            <script>alert("Error creating user account.");</script>
-<?php
+            // Password is incorrect, display alert
+            echo "<script>alert('Incorrect password.');</script>";
         }
-
-        // Close statement and connection
-        mysqli_stmt_close($stmt);
-        mysqli_close($conn);
+    } else {
+        // User does not exist, display alert
+        echo "<script>alert('User does not exist.');</script>";
     }
+
+    // Close statement and connection
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
 ?>
+
 
