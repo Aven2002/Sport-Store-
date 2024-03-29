@@ -25,7 +25,7 @@
     </main>
         <div id="button">
             <a href="src/views/Login.php"><button>Login</button></a>
-            <a href="src/views/SignUp.html"><button>Sign up</button></a>
+            <a href="src/views/SignUp.php"><button>Sign up</button></a>
         </div>
 
      <img id="sport-image" src="/Sport-Store-/assets/img/Sport.png" alt="Sport Image"/>

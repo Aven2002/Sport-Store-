@@ -3,19 +3,25 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
 }
+.section-left, .section-right {
+    width: 35%;
+    margin: 0 7%; 
+    float: left;
+}
+
 h2{
     text-align: center;
     margin-bottom:40px;
 }
 
 form{
-    width:500px;
+    width:800px;
     border:2px solid #ccc;
     padding:30px;
     background-color: #fff;
     border-radius:15px;
+    margin:20px;
 }
 
 input {
@@ -33,11 +39,21 @@ lable{
     padding:10px;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 300px;
+}
+
+@media screen and (max-width: 600px) {
+    .button-container {
+        display: flex;
+        justify-content: center; 
+        margin-top: 500px;
+    }
+}
+
 .back-btn i {
     font-size: 30px; 
     color:black;
-}
-
-.button-container{
-    text-align: center;
 }
