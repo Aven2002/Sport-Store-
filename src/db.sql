@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS cart (
 -- Feedback Table
 CREATE TABLE IF NOT EXISTS feedback (
     feedbackID INT NOT NULL AUTO_INCREMENT,
+    category VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
     contactNum VARCHAR(15) NOT NULL,
     message TEXT NOT NULL,
