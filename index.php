@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="/Sport-Store-/css/styles.css";/>
-    <link rel="stylesheet" href="/Sport-Store-/css/Landing.css"/>
+    <link rel="stylesheet" href="css/Landing.css?ver=<?php echo filemtime('css/Landing.css'); ?>">
+    <!-- <link rel="stylesheet" href="/Sport-Store-/css/Landing.css"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <?php include("./src/includes/header.html"); ?>
@@ -22,14 +24,12 @@
             <li>💼 Extensive Product Catalog</li>
             <li>🌍 Simplify Your Decision-making Process</li>
         </ul>
-    </main>
         <div id="button">
             <a href="src/views/Login.php"><button>Login</button></a>
             <a href="src/views/SignUp.php"><button>Sign up</button></a>
         </div>
-
-     <img id="sport-image" src="/Sport-Store-/assets/img/Sport.png" alt="Sport Image"/>
-    
+        <img id="sport-image" src="/Sport-Store-/assets/img/Sport.png" alt="Sport Image"/>
+    </main>    
     <?php include("./src/includes/footer.html")?>
 </body>
 </html>

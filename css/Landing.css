@@ -3,41 +3,67 @@ body {
     position: relative;
     min-height: 100vh;
     font-family: Arial, sans-serif; 
-    background-color: #FFFFFF; 
+    background-color: #f2f2f2; /* Light gray background */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
+
 main {
     padding: 50px; 
+    position: relative;
 }
+
+h2 {
+    color: #333; /* Dark gray heading color */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
 p {
     color: #666; 
     margin-bottom: 20px;
+    line-height: 1.6; /* Improve readability with increased line height */
 }
+
+ul {
+    color: #666; 
+    margin-bottom: 20px;
+    padding-left: 20px; /* Add left padding to the list */
+}
+
 li {
     list-style-type: none; 
     margin-bottom: 10px; 
 }
+
 #sport-image {
     position: absolute;
-    bottom: 60px; 
+    bottom: 0; 
     right: 0;
     width: 45%; 
     height: auto; 
 }
+
+
+
 @media screen and (max-width: 600px) {
     #sport-image {
         position: relative; 
         width: 80%;
         height: auto;
         text-align:center;
-        margin:50px;
+        margin: 50px auto; /* Center the image horizontally */
     }
     #button {
+        text-align: center; /* Center align buttons */
         margin-bottom: 20px; 
     }
 }
-button{
-    margin: 0 10px; 
+
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0 !important;
 }
-#button {
-    margin-left:100px;
-}
+
+
