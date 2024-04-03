@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="/Sport-Store-/css/styles.css";/>
-    <link rel="stylesheet" href="/Sport-Store-/css/Landing.css";/>
+    <link rel="stylesheet" href="/Sport-Store-/css/Landing.css"/>
 </head>
 <body>
     <?php include("./src/includes/header.html"); ?>

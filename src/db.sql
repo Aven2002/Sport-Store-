@@ -39,3 +39,12 @@ CREATE TABLE IF NOT EXISTS cart (
     FOREIGN KEY (userID) REFERENCES user_account(userID),
     FOREIGN KEY (productID) REFERENCES product(productID)
 );
+-- Feedback Table
+CREATE TABLE feedback (
+    feedbackID INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(45) NOT NULL,
+    contactNum VARCHAR(15) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (feedbackID),
+);
