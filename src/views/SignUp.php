@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert into database
-        $sql = "INSERT INTO user_account (username, password, FullName, Email, ContactNum, address) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO user_account (username, password, fullName, email, contactNum, address) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
         // Bind parameters
