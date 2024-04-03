@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (userID),
-    UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE
+    UNIQUE INDEX username_UNIQUE (username ASC)
 );
 -- Product Table
 CREATE TABLE IF NOT EXISTS product (
@@ -21,12 +21,13 @@ CREATE TABLE IF NOT EXISTS product (
     productName VARCHAR(45) NOT NULL,
     productCategory VARCHAR(50) NOT NULL,
     productBrand VARCHAR(45) NOT NULL,
+    productType VARCHAR(45) NOT NULL,
     productImagePath VARCHAR(255),
     productPrice DECIMAL(10, 2) NOT NULL,
     productDetails VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (productID),
-    UNIQUE INDEX productName_UNIQUE (productName ASC) VISIBLE
+    UNIQUE INDEX productName_UNIQUE (productName ASC)
 );
 -- Cart Table
 CREATE TABLE IF NOT EXISTS cart (
@@ -40,11 +41,11 @@ CREATE TABLE IF NOT EXISTS cart (
     FOREIGN KEY (productID) REFERENCES product(productID)
 );
 -- Feedback Table
-CREATE TABLE feedback (
+CREATE TABLE IF NOT EXISTS feedback (
     feedbackID INT NOT NULL AUTO_INCREMENT,
     email VARCHAR(45) NOT NULL,
     contactNum VARCHAR(15) NOT NULL,
     message TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (feedbackID),
+    PRIMARY KEY (feedbackID)
 );
