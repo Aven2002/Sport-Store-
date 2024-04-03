@@ -26,6 +26,8 @@
             Have a queston for us or feedback? Please select on the most
             appropriate category and fill out the form to reach us.
         </P>
+
+        <form id="contactForm" action="contact.php" method="post">
         <label for="category">Category:</label>
             <select id="category" name="category">
                 <option value="General">General Inquiry</option>
@@ -35,7 +37,6 @@
                 <option value="Customer Support">Customer Support</option>
                 <option value="Other">Other</option>
             </select>
-        <form id="contactForm" action="contact.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" required>
 
@@ -91,3 +92,37 @@
 
 </body>
 </html>
+
+<?php
+    // Include the database connection
+    include("../../database.php");
+
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Get form data
+        $category = $_POST["category"];
+        $email = $_POST["email"];
+        $contactNum = $_POST["contactNum"];
+        $message = $_POST["message"];
+
+        // Prepare and execute the SQL query to insert data into the feedback table
+        $sql = "INSERT INTO feedback (category, email, contactNum, message) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $category, $email, $contactNum, $message);
+        $stmt->execute();
+        
+        // Check if the query was successful
+        if ($stmt->affected_rows > 0) {
+            // Feedback successfully submitted
+            echo "<script>alert('Feedback submitted successfully!');</script>";
+        } else {
+            // Error occurred while submitting feedback
+            echo "<script>alert('Error submitting feedback. Please try again later.');</script>";
+        }
+
+        // Close the database connection
+        $stmt->close();
+        $conn->close();
+    }
+?>
+
