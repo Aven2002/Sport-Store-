@@ -8,7 +8,7 @@
     <script src="../../js/Home.js"></script>
 </head>
 <body>
-    <?php include("../includes/header.html");?>
+    <?php include("../includes/header.php");?>
     <nav>
         <?php include("../includes/navigation.html");?>
     </nav>

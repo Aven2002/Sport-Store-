@@ -44,12 +44,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="../../css/Contact.css?ver=<?php echo filemtime('../../css/Contact.css'); ?>">
+    <link rel="stylesheet" href="../../css/header.css?ver=<?php echo filemtime('../../css/header.css'); ?>">
 </head>
 <body>
-<header>
-    <?php include ("../includes/header.html");?>
-</header>
-
+    <?php include ("../includes/header.php");?>
 <main class="contact-container">
     
     <section class="contact-info">
@@ -93,10 +91,7 @@
         </form>
     </section>
 </main>
-
-<footer>
     <?php include("../includes/footer.html");?>
-</footer>
 
 <script>
     var messageTextarea = document.getElementById('message');

@@ -10,7 +10,7 @@
 </head>
 <body>
     <form action="Login.php" method="post">
-        <a href="../../index.php" class="back-btn">
+        <a href="index.php" class="back-btn">
             <i class="fas fa-angle-double-left"></i>
         </a>
         <h2>LOGIN</h2>
@@ -27,6 +27,9 @@
 </html>
 
 <?php
+// Start the session
+session_start();
+
 // Include database connection file
 include("../../database.php");
 
@@ -39,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if both username and password are provided
     if (!empty($username) && !empty($password)) {
         // Query to retrieve hashed password from the database
-        $sql = "SELECT userID, password FROM user_account WHERE username = ?";
+        $sql = "SELECT userID, username, password FROM user_account WHERE username = ?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
@@ -47,16 +50,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if user exists
         if (mysqli_stmt_num_rows($stmt) == 1) {
-            mysqli_stmt_bind_result($stmt, $UID ,$hashed_password);
+            mysqli_stmt_bind_result($stmt, $userID, $username, $hashed_password);
             mysqli_stmt_fetch($stmt);
 
             // Verify password
             if (password_verify($password, $hashed_password)) {
-                // Password is correct, redirect to authenticated page
-                session_start([
-                    'cookie_lifetime' => 86400,
-                ]);
-                $_SESSION["UID"]  = $UID;
+                // Password is correct, set session variables for userID and username
+                $_SESSION["userID"] = $userID;
+                $_SESSION["username"] = $username;
+                
+                // Redirect to authenticated page
                 header("Location: Home.php");
                 exit();
             } else {
@@ -78,6 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_close($conn);
 }
 ?>
+
+
+
 
 
 

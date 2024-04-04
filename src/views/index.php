@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
-    <link rel="stylesheet" href="/Sport-Store-/css/styles.css";/>
-    <link rel="stylesheet" href="css/Landing.css?ver=<?php echo filemtime('css/Landing.css'); ?>">
-    <link rel="stylesheet" href="css/footer.css?ver=<?php echo filemtime('css/footer.css'); ?>">
+    <link rel="stylesheet" href="../../css/styles.css";/>
+    <link rel="stylesheet" href="../../css/Landing.css?ver=<?php echo filemtime('../../css/landing.css'); ?>">
+    <link rel="stylesheet" href="../../css/header.css?ver=<?php echo filemtime('../../css/header.css'); ?>">
+    <link rel="stylesheet" href="../../css/footer.css?ver=<?php echo filemtime('../../css/footer.css'); ?>">
 </head>
 <body>
-    <?php include("./src/includes/header.html"); ?>
-    <?php include("./src/includes/navigation.html");?>
+    <?php include("../includes/header.php"); ?>
+    <?php include("../includes/navigation.html");?>
     <main>
         <h2>Experience the Excellence of Sport Store Web</h2>
         <p>
@@ -24,11 +25,11 @@
             <li>🌍 Simplify Your Decision-making Process</li>
         </ul>
         <div id="button">
-            <a href="src/views/Login.php"><button primary>Login</button></a>
-            <a href="src/views/SignUp.php"><button secondary>Sign up</button></a>
+            <a href="Login.php"><button primary>Login</button></a>
+            <a href="SignUp.php"><button secondary>Sign up</button></a>
         </div>
-        <img id="sport-image" src="/Sport-Store-/assets/img/Sport.png" alt="Sport Image"/>
+        <img id="sport-image" src="../../assets/img/Sport.png" alt="Sport Image"/>
     </main>    
-    <?php include("./src/includes/footer.html")?>
+    <?php include("../includes/footer.html")?>
 </body>
 </html>
