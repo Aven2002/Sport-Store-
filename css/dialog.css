@@ -23,23 +23,6 @@ dialog button{
     margin-top: 20px;
 }
 
-dialog  #dialog-proceed{
-    background-color: white;
-    color: black;
-}
-
-dialog .danger:hover{
-    background-color: red !important;
-    color: white !important;
-    box-shadow: 0px 0px 10px 0px rgba(255, 36, 36, 0.218);
-}
-
-dialog .success:hover{
-    background-color: rgb(4, 188, 28) !important;
-    color: white !important;
-    box-shadow: 0px 0px 10px 0px rgba(42, 255, 31, 0.218);
-}
-
 dialog > .button-group{
     display: flex;
     width: 80%;
