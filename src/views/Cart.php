@@ -53,7 +53,7 @@ function getUsername($conn, $UID)
         }
     } else {
         // Log error instead of echoing directly
-        error_log("Error fetching username: " . mysqli_error($conn));
+        echo"Error fetching username: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
@@ -80,7 +80,7 @@ function getCartList($conn, $UID)
         echo "<script>console.log(cart);</script>";
     } else {
         // Log error instead of echoing directly
-        error_log("Error fetching cart: " . mysqli_error($conn));
+        echo"Error fetching cart: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
@@ -102,7 +102,7 @@ function updateCart($userID, $cart)
     mysqli_stmt_bind_param($stmt_delete, "i", $userID);
 
     if (!mysqli_stmt_execute($stmt_delete)) {
-        error_log("Error deleting cart items: " . mysqli_error($conn));
+        echo"Error deleting cart items: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt_delete);
@@ -117,7 +117,7 @@ function updateCart($userID, $cart)
             mysqli_stmt_bind_param($stmt_insert, "iii", $userID, $productID, $quantity);
 
             if (!mysqli_stmt_execute($stmt_insert)) {
-                error_log("Error inserting cart items: " . mysqli_error($conn));
+                echo"Error inserting cart items: " . mysqli_error($conn);
             }
         }
     }
@@ -210,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (!empty($cart)): ?>
             <h1 class="text-center">Your Cart</h1>
             <form id="cart-form" method="post" action="">
-                <p class="text-center no-margin form-title">Product list</p>
+                <p class="text-center m-0 form-title">Product list</p>
                 <table class='table-list'>
                     <thead class="table-head">
                         <tr>
@@ -241,13 +241,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </td>
                                 <td class='item-qty'>
                                     <div>
-                                        <button type="button" secondary transparent class='quantity-btn no-margin'
+                                        <button type="button" secondary transparent class='quantity-btn m-0'
                                             product-id='<?php echo $item['productID']; ?>' operation='minus'>-</button>
                                         <input inputmode="numeric" type="text" class="qtyInput"
                                             name="quantity-<?php echo $item['productID']; ?>"
                                             product-id='<?php echo $item['productID']; ?>' size="5"
                                             value="<?php echo $item['quantity']; ?>" ori-qty="<?php echo $item['quantity']; ?>">
-                                        <button type="button" secondary transparent class='quantity-btn no-margin'
+                                        <button type="button" secondary transparent class='quantity-btn m-0'
                                             product-id='<?php echo $item['productID']; ?>' operation='plus'>+</button>
                                     </div>
                                 </td>
@@ -256,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?php echo number_format($item['productPrice'] * $item['quantity'], 2, '.', ''); ?>
                                 </td>
                                 <td>
-                                    <button danger type="button" class="removeBtn no-margin"
+                                    <button danger type="button" class="removeBtn m-0"
                                         onclick="removeRow(<?php echo $index . ',\'' . $item['productName'] . '\''; ?>)">-</button>
                                 </td>
                             </tr>
@@ -271,7 +271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form action="" id="info-form" method="post">
                 <div class="address-container">
-                    <p class="text-center no-margin form-title">Address Info</p>
+                    <p class="text-center m-0 form-title">Address Info</p>
                     <?php echo $address1Err; ?>
                     <input type="text" name="address1" class="address1" placeholder="Address 1"><br>
                     <input type="text" name="address2" class="address2" placeholder="Address 2">
@@ -289,7 +289,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 <div class="payment-container">
-                    <p class="text-center no-margin form-title">Payment Method</p>
+                    <p class="text-center m-0 form-title">Payment Method</p>
                     <?php echo $paymentMethodErr; ?>
                     <input type="radio" id="creditCard" name="paymentMethod" value="Credit Card">
                     <label for="creditCard">Credit Card</label><br>

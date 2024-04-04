@@ -118,6 +118,13 @@ button[warning]{
     text-align: center !important;
 }
 
-.no-margin {
+.m-0 {
     margin: 0;
+}
+
+.page-margin{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 900px;
+    margin-bottom: 300px;
 }
