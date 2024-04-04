@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart List</title>
+    <link rel="stylesheet" href="../../css/styles.css?ver=<?php echo filemtime('../../css/styles.css'); ?>">
     <link rel="stylesheet" href="../../css/cart.css?ver=<?php echo filemtime('../../css/cart.css'); ?>">
     <link rel="stylesheet" href="../../css/dialog.css?ver=<?php echo filemtime('../../css/dialog.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -240,13 +241,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </td>
                                 <td class='item-qty'>
                                     <div>
-                                        <button type="button" class='quantity-btn'
+                                        <button type="button" secondary class='quantity-btn no-margin'
                                             product-id='<?php echo $item['productID']; ?>' operation='minus'>-</button>
                                         <input inputmode="numeric" type="text" class="qtyInput"
                                             name="quantity-<?php echo $item['productID']; ?>"
                                             product-id='<?php echo $item['productID']; ?>' size="5"
                                             value="<?php echo $item['quantity']; ?>" ori-qty="<?php echo $item['quantity']; ?>">
-                                        <button type="button" class='quantity-btn'
+                                        <button type="button" secondary class='quantity-btn no-margin'
                                             product-id='<?php echo $item['productID']; ?>' operation='plus'>+</button>
                                     </div>
                                 </td>
@@ -255,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?php echo number_format($item['productPrice'] * $item['quantity'], 2, '.', ''); ?>
                                 </td>
                                 <td>
-                                    <button type="button" class="removeBtn"
+                                    <button type="button" class="removeBtn no-margin"
                                         onclick="removeRow(<?php echo $index . ',\'' . $item['productName'] . '\''; ?>)">-</button>
                                 </td>
                             </tr>
@@ -351,8 +352,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <dialog>
         <p class="dialog-text"></p>
         <div class="button-group">
-            <button id="dialog-close" value="cancel">Cancel</button>
-            <button id="dialog-proceed" class="danger" value="yes">sure</button>
+            <button id="dialog-close" primary value="cancel">Cancel</button>
+            <button id="dialog-proceed" danger-hover secondary value="yes">sure</button>
         </div>
     </dialog>
     <?php include ("../../src/includes/footer.html") ?>

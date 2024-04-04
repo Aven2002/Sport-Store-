@@ -1,17 +1,91 @@
+:root {
+    /* Dark/Mixed - 100: For body background color
+    Dark/Mixed - 200: For cards background color
+    Dark/Mixed - 300: For chips buttons, dropdowns background color
+    Dark/Mixed - 400: For sidebars, navbar background color
+    Dark/Mixed - 500: For modal, dialogs background color
+    Dark/Mixed - 600: For on background texts color */
+    --color-surface-100: #121212;
+    --color-surface-200: #282828;
+    --color-surface-300: #3f3f3f;
+    --color-surface-400: #575757;
+    --color-surface-500: #717171;
+    --color-surface-600: #8b8b8b;
 
-/* ------------Universal--------------- */
+    --color-warning: #ffc107;
+    --color-danger:#dc3545;
+    --color-success: #04bc1c;
+    --color-warning-shadow: #ffc10733;
+    --color-danger-shadow:#dc354533;
+    --color-success-shadow: #04bc1c33;
+}
+
 button {
-    background-color: #99CCFF; 
-    color: #202020; 
-    font-weight: bold;
-    padding: 12px 30px; 
-    cursor: pointer; 
-    border-radius: 10px; 
-    margin:10px;
+    background: var(--color-surface-100);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.218);
+    margin-top: 20px;
 }
-button:hover {
-    background-color: #00cccc; 
+
+button[primary]{
+    background: var(--color-surface-100);
+    color: white;
 }
 
+button[secondary]{
+    background: white;
+    color: var(--color-surface-100);
+}
 
+button[danger]{
+    background-color: var(--color-danger) !important;
+    color: white !important;
+}
 
+button[success]{
+    background-color: var(--color-success) !important;
+    color: white !important;
+}
+
+button[warning]{
+    background-color: var(--color-warning) !important;
+    color: white !important;
+}
+
+[danger-hover]:hover{
+    background-color: var(--color-danger) !important;
+    color: white !important;
+    box-shadow: 0px 0px 10px 0px var(--color-danger-shadow);
+}
+
+[success-hover]:hover{
+    background-color: var(--color-success)!important;
+    color: white !important;
+    box-shadow: 0px 0px 10px 0px var(--color-success-shadow);
+}
+
+button[warning]{
+    background-color: var(--color-warning) !important;
+    color: white !important;
+    box-shadow: 0px 0px 10px 0px var(--color-warning-shadow);
+}
+
+.errorText{
+    line-height: 100%;
+    color: red;
+    font-size:x-small;
+    margin: 0;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.no-margin {
+    margin: 0;
+}
