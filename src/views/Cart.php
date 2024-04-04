@@ -168,6 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $postcode = trim($_POST["postcode"]);
                 $state = trim($_POST["state"]);
                 $country = trim($_POST["country"]);
+                $postcodePattern = '/^\d{5}$/';
                 if (empty($_POST['paymentMethod'])) {
                     $paymentMethodErr = "<p class='errorText text-center'>* Please select a payment method</p>";
                 } else {
@@ -179,8 +180,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (empty($city)) {
                     $cityErr = "<small class='errorText'>* City is required</small><br>";
                 }
+                echo $postcode;
                 if (empty($postcode)) {
                     $postcodeErr = "<small class='errorText'>* Postcode is required</small><br>";
+                }elseif(!preg_match($postcodePattern, $postcode)){
+                    $postcodeErr = "<small class='errorText'>* Invalid postcode</small><br>";
                 }
                 if (empty($state)) {
                     $stateErr = "<small class='errorText'>* State is required</small><br>";
