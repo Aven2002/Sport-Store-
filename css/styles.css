@@ -11,7 +11,10 @@
     --color-surface-400: #575757;
     --color-surface-500: #717171;
     --color-surface-600: #8b8b8b;
+    --color-font: #f1ebeb;
+    --color-font-shadow: #ffffff33;
 
+    --color-primary: #3586ff;
     --color-warning: #ffc107;
     --color-danger:#dc3545;
     --color-success: #04bc1c;
@@ -20,64 +23,93 @@
     --color-success-shadow: #04bc1c33;
 }
 
+html, body{
+    background-color: var(--color-surface-100);
+    color: var(--color-font);
+}
+
+input, select, textarea{
+    border: 0.5px solid var(--color-font-shadow);
+    padding: 5px;
+    background-color: var(--color-surface-100);
+    color: var(--color-font);
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    border: none;
+    background-color: var(--color-surface-100);
+    color: var(--color-font);
+}
+
 button {
-    background: var(--color-surface-100);
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-font);
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.218);
+    box-shadow: 0px 0px 10px 0px var(--color-font-shadow);
     margin-top: 20px;
 }
 
-button[primary]{
-    background: var(--color-surface-100);
-    color: white;
+button[secondary]{
+    color: var(--color-primary);
+    background: var(--color-font);
+    box-shadow: 0px 0px 10px 0px var(--color-font-shadow);
 }
 
-button[secondary]{
-    background: white;
-    color: var(--color-surface-100);
+button[transparent]{
+    background: transparent !important;
+}
+
+button[no-shadow]{
+    box-shadow: none;
+}
+
+button[primary]{
+    background: var(--color-primary);
+    color: var(--color-font);
+    box-shadow: 0px 0px 10px 0px var(--color-font-shadow);
 }
 
 button[danger]{
     background-color: var(--color-danger) !important;
-    color: white !important;
+    color: var(--color-font) !important;
 }
 
 button[success]{
     background-color: var(--color-success) !important;
-    color: white !important;
+    color: var(--color-font) !important;
 }
 
 button[warning]{
     background-color: var(--color-warning) !important;
-    color: white !important;
+    color: var(--color-font) !important;
 }
 
 [danger-hover]:hover{
     background-color: var(--color-danger) !important;
-    color: white !important;
+    color: var(--color-font) !important;
     box-shadow: 0px 0px 10px 0px var(--color-danger-shadow);
 }
 
 [success-hover]:hover{
     background-color: var(--color-success)!important;
-    color: white !important;
+    color: var(--color-font) !important;
     box-shadow: 0px 0px 10px 0px var(--color-success-shadow);
 }
 
 button[warning]{
     background-color: var(--color-warning) !important;
-    color: white !important;
+    color: var(--color-font) !important;
     box-shadow: 0px 0px 10px 0px var(--color-warning-shadow);
 }
 
 .errorText{
     line-height: 100%;
-    color: red;
+    color: var(--color-danger);
     font-size:x-small;
     margin: 0;
 }

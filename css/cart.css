@@ -33,7 +33,7 @@ td.empty-class{
     font-weight: 900;
 }
 .table-head th, .item-row:last-child td, td.empty-class {
-    border-bottom: 0.5px solid black;
+    border-bottom: 0.5px solid var(--color-font);
 }
 
 .item-row {
@@ -81,7 +81,6 @@ td.empty-class{
 .qtyInput {
     width: 10ch;
     text-align: center;
-    border: none;
 }
 
 .quantity-btn {
@@ -121,8 +120,6 @@ td.empty-class{
 
 .placeOrderBtn{
     grid-column: span 2;
-    background-color: rgb(25 25 25);
-    color: white;
     border: none;
     padding: 15px 0px;
     width: 50%;
@@ -131,6 +128,10 @@ td.empty-class{
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s ease-in;
+}
+
+.form-title{
+    margin-bottom: 5px;
 }
 
 .homeBtn{
@@ -162,11 +163,7 @@ td.empty-class{
 }
 
 #updateBtn{
-    background-color: rgb(255 255 255);
-    border: none;
     padding: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.218);
-    border-radius: 15px;
     margin-bottom: 5px;
 }
 

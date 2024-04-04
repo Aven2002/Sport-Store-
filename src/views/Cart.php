@@ -210,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (!empty($cart)): ?>
             <h1 class="text-center">Your Cart</h1>
             <form id="cart-form" method="post" action="">
-                <p class="text-center no-margin">Product list</p>
+                <p class="text-center no-margin form-title">Product list</p>
                 <table class='table-list'>
                     <thead class="table-head">
                         <tr>
@@ -241,13 +241,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </td>
                                 <td class='item-qty'>
                                     <div>
-                                        <button type="button" secondary class='quantity-btn no-margin'
+                                        <button type="button" secondary transparent class='quantity-btn no-margin'
                                             product-id='<?php echo $item['productID']; ?>' operation='minus'>-</button>
                                         <input inputmode="numeric" type="text" class="qtyInput"
                                             name="quantity-<?php echo $item['productID']; ?>"
                                             product-id='<?php echo $item['productID']; ?>' size="5"
                                             value="<?php echo $item['quantity']; ?>" ori-qty="<?php echo $item['quantity']; ?>">
-                                        <button type="button" secondary class='quantity-btn no-margin'
+                                        <button type="button" secondary transparent class='quantity-btn no-margin'
                                             product-id='<?php echo $item['productID']; ?>' operation='plus'>+</button>
                                     </div>
                                 </td>
@@ -256,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?php echo number_format($item['productPrice'] * $item['quantity'], 2, '.', ''); ?>
                                 </td>
                                 <td>
-                                    <button type="button" class="removeBtn no-margin"
+                                    <button danger type="button" class="removeBtn no-margin"
                                         onclick="removeRow(<?php echo $index . ',\'' . $item['productName'] . '\''; ?>)">-</button>
                                 </td>
                             </tr>
@@ -265,13 +265,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </table>
                 <div style="text-align: right;">
                     <input name="subject" value="SAVE CHANGE" hidden>
-                    <button type="submit" id="updateBtn" hidden>SAVE CHANGE</button>
+                    <button success type="submit" id="updateBtn" hidden>SAVE CHANGE</button>
                 </div>
             </form>
 
             <form action="" id="info-form" method="post">
                 <div class="address-container">
-                    <p class="text-center no-margin">Address Info</p>
+                    <p class="text-center no-margin form-title">Address Info</p>
                     <?php echo $address1Err; ?>
                     <input type="text" name="address1" class="address1" placeholder="Address 1"><br>
                     <input type="text" name="address2" class="address2" placeholder="Address 2">
@@ -289,7 +289,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 <div class="payment-container">
-                    <p class="text-center no-margin">Payment Method</p>
+                    <p class="text-center no-margin form-title">Payment Method</p>
                     <?php echo $paymentMethodErr; ?>
                     <input type="radio" id="creditCard" name="paymentMethod" value="Credit Card">
                     <label for="creditCard">Credit Card</label><br>
@@ -310,7 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="atome">Atome</label><br>
                 </div>
                 <input name="subject" value="Place Order" hidden>
-                <button class="placeOrderBtn" name="submit" type="submit">Place Order (RM
+                <button primary class="placeOrderBtn" name="submit" type="submit">Place Order (RM
                     <?php echo number_format($totalPrice, 2, '.', '');
                     ; ?>)
                 </button>
@@ -337,7 +337,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <tr>
                         <td colspan="5" class="empty-class">
                             Cart is empty!
-                            <a class="homeBtn" href="Home.php">Explore More
+                            <a primary class="homeBtn" href="Home.php">Explore More
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                     <path fill="#ffffff" stroke="currentColor" stroke-linecap="square"
                                         stroke-miterlimit="10" stroke-width="48" d="M268 112l144 144-144 144M392 256H100" />
