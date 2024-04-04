@@ -46,9 +46,10 @@ html,body {
     margin: 0;
     font-family: Arial, sans-serif;
     min-height: 100vh;
-    position:relative;
-    background-color: #fff; 
-    color: #fff; 
+    position: relative;
+    background-color: #121212;
+    color: #f1ebeb; 
+    text-shadow: 1px 1px 2px #ffffff33; 
 }
 
 .product-grid {
@@ -58,22 +59,59 @@ html,body {
 }
 
 .product-card {
-    border: 1px solid #fff; 
-    padding: 10px;
-    margin: 10px;
-    width: calc(30% - 20px); 
-    display: inline-block;
-    text-align: center; 
-    background-color: lightblue;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 20px;
+    background-color: transparent; 
+    perspective: 1000px;
+    border: 3px solid green; 
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-card:hover .card-front {
+    transform: rotateY(-180deg);
+}
+
+.product-card:hover .card-back {
+    transform: rotateY(0deg);
 }
 
 .product-image {
-    max-width: 100%; 
-    height: auto; 
+    width: 100%;
+    height: 100%;
+}
+
+.product-name, .product-price {
+    margin: 10px 0;
+    color: #f1ebeb; 
+    padding: 10px;
 }
 
 @media screen and (max-width: 576px) {
     .carousel {
         max-width: 500px;
+    }
+    .product-card {
+        width: calc(100% - 20px); /* Adjust the width for even smaller screens */
     }
 }
