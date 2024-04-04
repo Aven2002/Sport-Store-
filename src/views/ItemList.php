@@ -18,6 +18,7 @@ $isGuest = true;
 $username = "";
 $category = isset($_GET['cat']) ? trim($_GET['cat']) : null;
 $brands = [];
+$UID ='';
 if ($category) {
     $brands = getBrands($conn, $_GET['cat']);
 }
