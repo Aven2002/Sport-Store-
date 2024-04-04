@@ -57,14 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     'cookie_lifetime' => 86400,
                 ]);
                 $_SESSION["UID"]  = $UID;
-                header("Location: ../../index.php");
+                header("Location: Home.php");
                 exit();
             } else {
-                // Password is incorrect, display alert
                 echo "<script>alert('Incorrect password.');</script>";
             }
         } else {
-            // User does not exist, display alert
             echo "<script>alert('User does not exist.');</script>";
         }
 

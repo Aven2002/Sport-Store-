@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS product (
     productType VARCHAR(45) NOT NULL,
     productImagePath VARCHAR(255),
     productPrice DECIMAL(10, 2) NOT NULL,
-    productDetails VARCHAR(255) NOT NULL,
+    productDetails TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (productID),
     UNIQUE INDEX productName_UNIQUE (productName ASC)
@@ -50,3 +50,6 @@ CREATE TABLE IF NOT EXISTS feedback (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (feedbackID)
 );
+-- Add Badminton Data
+INSERT INTO product (productName, description, price)
+VALUES ('Product Name', 'Product Description', 19.99);

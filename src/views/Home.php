@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="../../css/Home.css">
+    <link rel="stylesheet" href="../../css/Home.css?ver=<?php echo filemtime('../../css/Home.css'); ?>">
     <script src="../../js/Home.js"></script>
 </head>
 <body>
-    <header>
         <?php include("../includes/header.html");?>
-    </header>
-
+    <nav>
+        <?php include("../includes/navigation.html");?>
+    </nav>
     <main>
     <div class="carousel">
     <div class="carousel-items">
@@ -55,8 +55,6 @@
         </div>
     </main>
 
-    <footer>
         <?php include("../includes/footer.html");?>
-    </footer>
 </body>
 </html>
