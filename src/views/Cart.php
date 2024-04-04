@@ -180,7 +180,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (empty($city)) {
                     $cityErr = "<small class='errorText'>* City is required</small><br>";
                 }
-                echo $postcode;
                 if (empty($postcode)) {
                     $postcodeErr = "<small class='errorText'>* Postcode is required</small><br>";
                 }elseif(!preg_match($postcodePattern, $postcode)){
@@ -318,7 +317,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php elseif ($isGuest): ?>
             <div class="guestPage">
                 <img src="../../assets/img/ComLogo.png" alt="">
-                <p>Please <a href="src/views/Login.php">login</a> or <a href="src/views/Login.php">sign up</a> to view your
+                <p>Please <a href="Login.php">login</a> or <a href="SignUp.php">sign up</a> to view your
                     cart list</p>
             </div>
         <?php else: ?>
