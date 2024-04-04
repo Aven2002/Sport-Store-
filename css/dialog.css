@@ -1,0 +1,47 @@
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+dialog[open]{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+dialog button{
+    background: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.218);
+    margin-top: 20px;
+}
+
+dialog  #dialog-proceed{
+    background-color: white;
+    color: black;
+}
+
+dialog .danger:hover{
+    background-color: red !important;
+    color: white !important;
+    box-shadow: 0px 0px 10px 0px rgba(255, 36, 36, 0.218);
+}
+
+dialog .success:hover{
+    background-color: rgb(4, 188, 28) !important;
+    color: white !important;
+    box-shadow: 0px 0px 10px 0px rgba(42, 255, 31, 0.218);
+}
+
+dialog > .button-group{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}

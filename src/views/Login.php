@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if both username and password are provided
     if (!empty($username) && !empty($password)) {
         // Query to retrieve hashed password from the database
-        $sql = "SELECT password FROM user_account WHERE username = ?";
+        $sql = "SELECT userID, password FROM user_account WHERE username = ?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
@@ -47,12 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if user exists
         if (mysqli_stmt_num_rows($stmt) == 1) {
-            mysqli_stmt_bind_result($stmt, $hashed_password);
+            mysqli_stmt_bind_result($stmt, $UID ,$hashed_password);
             mysqli_stmt_fetch($stmt);
 
             // Verify password
             if (password_verify($password, $hashed_password)) {
                 // Password is correct, redirect to authenticated page
+                session_start([
+                    'cookie_lifetime' => 86400,
+                ]);
+                $_SESSION["UID"]  = $UID;
                 header("Location: ../../index.php");
                 exit();
             } else {
