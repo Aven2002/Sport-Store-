@@ -6,8 +6,7 @@
     <title>Landing Page</title>
     <link rel="stylesheet" href="/Sport-Store-/css/styles.css";/>
     <link rel="stylesheet" href="css/Landing.css?ver=<?php echo filemtime('css/Landing.css'); ?>">
-    <!-- <link rel="stylesheet" href="/Sport-Store-/css/Landing.css"/> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/footer.css?ver=<?php echo filemtime('css/footer.css'); ?>">
 </head>
 <body>
     <?php include("./src/includes/header.html"); ?>
