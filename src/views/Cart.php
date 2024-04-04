@@ -336,7 +336,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <tr>
                         <td colspan="5" class="empty-class">
                             Cart is empty!
-                            <a class="homeBtn" href="src/views/Home.php">Explore More
+                            <a class="homeBtn" href="Home.php">Explore More
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                     <path fill="#ffffff" stroke="currentColor" stroke-linecap="square"
                                         stroke-miterlimit="10" stroke-width="48" d="M268 112l144 144-144 144M392 256H100" />
