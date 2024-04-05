@@ -15,14 +15,13 @@ CREATE TABLE IF NOT EXISTS user_account (
     PRIMARY KEY (userID),
     UNIQUE INDEX username_UNIQUE (username ASC)
 );
-/*Product Table*/
 CREATE TABLE IF NOT EXISTS product (
     productID INT NOT NULL AUTO_INCREMENT,
-    productName VARCHAR(45) NOT NULL,
+    productName VARCHAR(80) NOT NULL,
     productCategory VARCHAR(50) NOT NULL,
     productBrand VARCHAR(45) NOT NULL,
     productType VARCHAR(45) NOT NULL,
-    productImagePath VARCHAR(255),
+    productImagePath TEXT NOT NULL,
     productPrice DECIMAL(10, 2) NOT NULL,
     productDetails TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -327,7 +326,7 @@ VALUES (
         ' basketball ',
         ' Wilson ',
         ' Basketball ',
-        '../../ assets / product image / basketball / CHRIS BRICKLEY WEIGHTED TRAINING BALL.png ',
+        '../../assets/product image/basketball/CHRIS BRICKLEY WEIGHTED TRAINING BALL.png',
         236.60,
         ' The Chris Brickley Slick Training Ball,
         a collaboration between Wilson and NBA trainer Chris Brickley,
@@ -341,7 +340,7 @@ VALUES (
         ' basketball ',
         ' Li - Ning ',
         ' Basketball ',
-        '../../ assets / product image / basketball / LI - NING BADFIVE ELITE BASKETBALL.png ',
+        '../../assets/product image/basketball/LI-NING BADFIVE ELITE BASKETBALL.png ',
         169.00,
         ' Size :7 '
     ),
@@ -350,7 +349,7 @@ VALUES (
         ' basketball ',
         ' Li - Ning ',
         ' Basketball ',
-        '../../ assets / product image / basketball / LI - NING DURABLE SYNTHETIC BASKETBALL.png ',
+        '../../assets/product image/basketball/LI-NING DURABLE SYNTHETIC BASKETBALL.png ',
         199.00,
         ' size :7 '
     ),
@@ -359,7 +358,7 @@ VALUES (
         ' basketball ',
         ' Li - Ning ',
         ' Basketball ',
-        '../../ assets / product image / basketball / LI - NING FIBA GAME BASKETBALL.png ',
+        '../../assets/product image/basketball/LI-NING FIBA GAME BASKETBALL.png ',
         409.00,
         ' size :7 '
     ),
@@ -377,7 +376,7 @@ VALUES (
         ' basketball ',
         ' Li - Ning ',
         ' Basketball ',
-        '../../ assets / product image / basketball / LI - NING 3V3 BASKETBALL.png ',
+        '../../assets/product image/basketball/LI-NING 3V3 BASKETBALL.png ',
         199.00,
         ' Meet the LI - NING 3V3 Basketball - Yellow Indigo Black.Enhance your performance with this top - notch basketball tailored for dedicated players.Its striking yellow,
             indigo,
@@ -388,7 +387,7 @@ VALUES (
         ' basketball ',
         ' Li - Ning ',
         ' Basketball Shoes ',
-        '../../ assets / product image / basketball / LI - NING BADFIVE FURIOUS 1 BASKETBALL SHOES.png ',
+        '../../assets/product image/basketball/LI-NING BADFIVE FURIOUS 1 BASKETBALL SHOES.png ',
         499.00,
         ' The BADFIVE FURIOUS 1 Stable Support Basketball Outcourt Shoe features a minimalist
             and casual design with simple color combinations.The upper is crafted
