@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verify password
             if (password_verify($password, $hashed_password)) {
                 // Password is correct, set session variables for userID and username
-                $_SESSION["userID"] = $userID;
+                $_SESSION["UID"] = $userID;
                 $_SESSION["username"] = $username;
                 
                 // Redirect to authenticated page

@@ -17,10 +17,10 @@
     <div class="dropdown">
       <button class="dropbtn">Account &#9662;</button>
       <div class="dropdown-content">
-        <?php if(isset($_SESSION["userID"])) { ?>
+        <?php if(isset($_SESSION["UID"])) { ?>
         <p>
           User ID:
-          <?php echo $_SESSION["userID"]; ?>
+          <?php echo $_SESSION["UID"]; ?>
         </p>
         <?php } else { ?>
         <p>User ID: Not logged in</p>

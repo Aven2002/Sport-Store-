@@ -116,7 +116,7 @@ if (isset($_POST['addCart'])) {
         $sql_insert = "INSERT INTO cart (userID, productID, quantity) VALUES (?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql_insert);
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "iii", $UID, $productIDs, $quantities);
+            mysqli_stmt_bind_param($stmt, "iii", $UID, $productID, $quantitiy);
             if (!mysqli_stmt_execute($stmt)) {
                 echo "Error: " . mysqli_error($conn);
             } else {
@@ -178,7 +178,7 @@ function getBrands($conn, $cat)
 ?>
 
 <body>
-    <?php include("../../src/includes/header.html"); ?>
+    <?php include("../../src/includes/header.php"); ?>
     <?php include("../../src/includes/navigation.html"); ?>
     <main class="page-margin">
         <h1>Products</h1>
