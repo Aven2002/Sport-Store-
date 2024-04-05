@@ -20,6 +20,7 @@
 .product-image {
     width: 100%;
     aspect-ratio: 1/1;
+    object-fit: contain;
 }
 
 .img-container {
@@ -46,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    padding-right: 10px;
+    padding: 0 10px 0 5px;
     align-items: center;
 }
 
@@ -72,7 +73,6 @@ button.addCart>span {
 
 button.addCart:hover>span {
     opacity: 0;
-    max-width: 0;
 }
 
 .product-price {

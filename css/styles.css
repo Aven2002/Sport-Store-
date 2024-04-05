@@ -12,12 +12,13 @@
     --color-surface-500: #717171;
     --color-surface-600: #8b8b8b;
     --color-font: #f1ebeb;
-    --color-font-shadow: #ffffff33;
+    --color-font-shadow: #ffffff4b;
 
     --color-primary: #3586ff;
     --color-warning: #ffc107;
     --color-danger:#dc3545;
     --color-success: #04bc1c;
+    --color-primary-shadow: #3586ff;
     --color-warning-shadow: #ffc10733;
     --color-danger-shadow:#dc354533;
     --color-success-shadow: #04bc1c33;
@@ -101,7 +102,7 @@ button[warning]{
     box-shadow: 0px 0px 10px 0px var(--color-success-shadow);
 }
 
-button[warning]{
+button[warning]:hover{
     background-color: var(--color-warning) !important;
     color: var(--color-font) !important;
     box-shadow: 0px 0px 10px 0px var(--color-warning-shadow);
@@ -127,4 +128,10 @@ button[warning]{
     margin: 0 auto;
     max-width: 900px;
     margin-bottom: 300px;
+}
+
+.no-text-overflow{
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
 }

@@ -26,7 +26,6 @@ $products = [];
 $requstURI = $_SERVER['REQUEST_URI'];
 if (isset($_SESSION["UID"])) {
     $UID = $_SESSION["UID"];
-    $username = getUsername($conn, $UID);
     $isGuest = false;
 }
 $sqlKeyValue = array(
@@ -106,7 +105,6 @@ if (isset($_POST['addCart'])) {
         $stmt_update = mysqli_prepare($conn, $sql_update);
         mysqli_stmt_bind_param($stmt_update, "iii", $newQty, $UID, $productID);
         if (mysqli_stmt_execute($stmt_update)) {
-            echo " Success add to cart.";
             echo "<script>window.location.href = '" . $requstURI . "';</script>";
         } else {
             echo "Error updating quantity: " . mysqli_error($conn);
@@ -120,7 +118,6 @@ if (isset($_POST['addCart'])) {
             if (!mysqli_stmt_execute($stmt)) {
                 echo "Error: " . mysqli_error($conn);
             } else {
-                echo "Success add to cart.";
                 echo "<script>window.location.href = '" . $requstURI . "';</script>";
             }
             mysqli_stmt_close($stmt);
@@ -131,30 +128,6 @@ if (isset($_POST['addCart'])) {
     mysqli_close($conn);
     exit();
 }
-
-function getUsername($conn, $UID)
-{
-    $username = "";
-    $sql = "SELECT username FROM user_account WHERE userID = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $UID);
-
-    if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_store_result($stmt);
-
-        if (mysqli_stmt_num_rows($stmt) > 0) {
-            mysqli_stmt_bind_result($stmt, $name);
-            mysqli_stmt_fetch($stmt);
-            $username = $name;
-        }
-    } else {
-        echo "Error fetch username: " . mysqli_error($conn);
-    }
-
-    mysqli_stmt_close($stmt);
-    return $username;
-}
-
 function getBrands($conn, $cat)
 {
     $brands = [];
@@ -213,7 +186,7 @@ function getBrands($conn, $cat)
                                     <img class="product-image" src='<?php echo $product['productImagePath'] ?? 'https://picsum.photos/500/500'; ?>' alt='<?php echo $product['productName']; ?>' title='<?php echo $product['productName']; ?>'>
                                 </div>
                                 <div class="product-body">
-                                    <h5 class="product-title">
+                                    <h5 class="product-title no-text-overflow">
                                         <?php echo $product["productName"]; ?>
                                     </h5>
                                     <h6 class="product-subtitle">

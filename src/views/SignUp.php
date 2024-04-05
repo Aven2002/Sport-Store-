@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         // Check if user account was created successfully
         if (mysqli_stmt_affected_rows($stmt) > 0) {
             echo '<script>alert("User account created successfully.");</script>';
-            echo '<script>window.location.href = "../../index.php";</script>'; 
+            echo '<script>window.location.href = "index.php";</script>'; 
             exit();
         } else {
             echo '<script>alert("Error creating user account.");</script>';

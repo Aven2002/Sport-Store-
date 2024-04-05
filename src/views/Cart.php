@@ -21,43 +21,12 @@ $totalPrice = 0;
 if (isset($_SESSION["UID"])) {
     include ("../../database.php");
     $UID = $_SESSION["UID"];
-    $username = getUsername($conn, $UID);
     $isGuest = false;
     $cart = getCartList($conn, $UID);
     for ($i = 0; $i < count($cart); $i++) {
         $totalPrice += $cart[$i]["productPrice"] * $cart[$i]["quantity"];
     }
     mysqli_close($conn);
-}
-
-/**
- * get username by id
- * @param mixed $conn
- * @param int $UID
- * @return string | null
- */
-function getUsername($conn, $UID)
-{
-    $username = "";
-    $sql = "SELECT username FROM user_account WHERE userID = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $UID);
-
-    if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_store_result($stmt);
-
-        if (mysqli_stmt_num_rows($stmt) > 0) {
-            mysqli_stmt_bind_result($stmt, $name);
-            mysqli_stmt_fetch($stmt);
-            $username = $name;
-        }
-    } else {
-        // Log error instead of echoing directly
-        echo"Error fetching username: " . mysqli_error($conn);
-    }
-
-    mysqli_stmt_close($stmt);
-    return $username;
 }
 
 /**
