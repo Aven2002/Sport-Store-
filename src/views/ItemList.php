@@ -19,9 +19,7 @@ $username = "";
 $category = isset($_GET['cat']) ? trim($_GET['cat']) : null;
 $brands = [];
 $UID ='';
-if ($category) {
-    $brands = getBrands($conn, $_GET['cat']);
-}
+$brands = getBrands($conn, $category );
 $products = [];
 $requstURI = $_SERVER['REQUEST_URI'];
 if (isset($_SESSION["UID"])) {
@@ -130,22 +128,16 @@ if (isset($_POST['addCart'])) {
 }
 function getBrands($conn, $cat)
 {
-    $brands = [];
-    $sql = "SELECT DISTINCT productBrand FROM product WHERE productCategory = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $cat);
-    if (mysqli_stmt_execute($stmt)) {
-        mysqli_stmt_store_result($stmt);
-        if (mysqli_stmt_num_rows($stmt) > 0) {
-            mysqli_stmt_bind_result($stmt, $productBrand);
-            while (mysqli_stmt_fetch($stmt)) {
-                $brands[] = $productBrand;
-            }
-        } else {
-        }
-    } else {
-        echo "Error executing statement: " . mysqli_error($conn);
+    $sql = "SELECT DISTINCT productBrand FROM product";
+    if (!empty($cat)) {
+        $sql = "SELECT DISTINCT productBrand FROM product WHERE productCategory = '$cat'";
     }
+    $brands = [];
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $brands[] = $row['productBrand'];
+    }
+    mysqli_free_result($result);
     return $brands;
 }
 ?>
