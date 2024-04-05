@@ -14,34 +14,36 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 40px;
+    color: white; 
 }
 
 form {
     width: 500px;
-    border: 2px solid #ccc;
+    border: 2px solid rgb(255, 255, 255); 
     padding: 30px;
-    background-color: #fff;
+    background-color: black; 
     border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 input {
     display: block;
-    border: 2px solid #ccc;
     width: 95%;
     padding: 10px;
     margin: 10px auto;
     border-radius: 5px;
+    background-color: transparent; 
+    color: white; 
 }
 
 label {
-    color: #660000;
     font-size: 18px;
     padding: 10px;
 }
 
 .back-btn i {
     font-size: 30px; 
-    color: black;
+    color: white; /* Change button color to white */
 }
 
 .button-container {

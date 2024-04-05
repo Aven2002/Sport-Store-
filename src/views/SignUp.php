@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
-    <link rel="stylesheet" href="/Sport-Store-/css/SignUp.css">
-    <link rel="stylesheet" href="/Sport-Store-/css/styles.css">
+    <link rel="stylesheet" href="../../css/SignUp.css?ver=<?php echo filemtime('../../css/SignUp.css'); ?>">
+    <link rel="stylesheet" href="../../css/styles.css?ver=<?php echo filemtime('../../css/styles.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
             <input type="password" name="password" placeholder="Password"/><br>
         </div>
         <div class="button-container">
-            <button type="reset">Reset</button>
+            <button type="reset" primary value="cancel">Reset</button>
             <button type="submit">Submit</button>
         </div>
     </form>
