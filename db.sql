@@ -343,7 +343,7 @@ VALUES (
     (
         ' CHRIS BRICKLEY WEIGHTED TRAINING BALL ',
         ' basketball ',
-        ' Wilson ',
+        'Wilson',
         ' Basketball ',
         '../../assets/product image/basketball/CHRIS BRICKLEY WEIGHTED TRAINING BALL.png',
         236.60,
@@ -357,7 +357,7 @@ VALUES (
     (
         ' LI - NING BADFIVE ELITE BASKETBALL ',
         ' basketball ',
-        ' Li - Ning ',
+        'Li-Ning',
         ' Basketball ',
         '../../assets/product image/basketball/LI-NING BADFIVE ELITE BASKETBALL.png ',
         169.00,
@@ -366,7 +366,7 @@ VALUES (
     (
         ' LI - NING DURABLE SYNTHETIC BASKETBALL ',
         ' basketball ',
-        ' Li - Ning ',
+        'Li-Ning',
         ' Basketball ',
         '../../assets/product image/basketball/LI-NING DURABLE SYNTHETIC BASKETBALL.png ',
         199.00,
@@ -375,7 +375,7 @@ VALUES (
     (
         ' LI - NING FIBA GAME BASKETBALL ',
         ' basketball ',
-        ' Li - Ning ',
+        'Li-Ning',
         ' Basketball ',
         '../../assets/product image/basketball/LI-NING FIBA GAME BASKETBALL.png ',
         409.00,
@@ -384,7 +384,7 @@ VALUES (
     (
         ' LI - NING SYNTHETIC BASKETBALL - PINK / BLACK ',
         ' basketball ',
-        ' Li - Ning ',
+        'Li-Ning',
         ' Basketball ',
         '../../assets/product image/basketball/LI-NING SYNTHETIC BASKETBALL.png',
         119.00,
@@ -393,7 +393,7 @@ VALUES (
     (
         ' LI - NING 3V3 BASKETBALL - YELLOW INDIGO BLACK ',
         ' basketball ',
-        ' Li - Ning ',
+        'Li-Ning',
         ' Basketball ',
         '../../assets/product image/basketball/LI-NING 3V3 BASKETBALL.png ',
         199.00,
@@ -404,7 +404,7 @@ VALUES (
     (
         ' LI - NING BADFIVE FURIOUS 1 BASKETBALL SHOES - S ',
         ' basketball ',
-        ' Li - Ning ',
+        'Li-Ning',
         ' Basketball Shoes ',
         '../../assets/product image/basketball/LI-NING BADFIVE FURIOUS 1 BASKETBALL SHOES.png ',
         499.00,
