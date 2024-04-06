@@ -12,10 +12,12 @@ Backend:
 • MySQL
 
 Views:
+• Landing
 • Login
 • Sign Up
 • Home
 • Contact
 • Item List
 • Item Details
-• Wishlist
+• Cart
+• Order
