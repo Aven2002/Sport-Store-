@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS user_account (
     fullName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
     contactNum VARCHAR(15) NOT NULL,
-    address VARCHAR(60) NOT NULL,
     username VARCHAR(45) NOT NULL,
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -61,12 +60,13 @@ CREATE TABLE IF NOT EXISTS orders (
     state VARCHAR(45),
     country VARCHAR(45),
     paymentMethod VARCHAR(45),
+    totalPrice DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (orderID),
     FOREIGN KEY (userID) REFERENCES user_account(userID)
 );
 /* OrderProducts Table */
-CREATE TABLE IF NOT EXISTS orderProducts (
+CREATE TABLE IF NOT EXISTS order_product (
     orderProductID INT NOT NULL AUTO_INCREMENT,
     orderID INT NOT NULL,
     productID INT NOT NULL,
