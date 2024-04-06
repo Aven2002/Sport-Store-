@@ -8,6 +8,7 @@ Frontend:
 • JavaScript
 
 Backend:
+• PHP
 • MySQL
 
 Views:
