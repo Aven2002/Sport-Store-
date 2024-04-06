@@ -51,21 +51,29 @@ CREATE TABLE IF NOT EXISTS feedback (
     PRIMARY KEY (feedbackID)
 );
 /* Order Table */
-CREATE TABLE IF NOT EXISTS `order` (
+CREATE TABLE IF NOT EXISTS orders (
     orderID INT NOT NULL AUTO_INCREMENT,
     userID INT NOT NULL,
+    address1 VARCHAR(60) NOT NULL,
+    address2 VARCHAR(60),
+    city VARCHAR(45),
+    postcode VARCHAR(10),
+    state VARCHAR(45),
+    country VARCHAR(45),
+    paymentMethod VARCHAR(45),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (orderID),
     FOREIGN KEY (userID) REFERENCES user_account(userID)
 );
-/* Order Items Table */
-CREATE TABLE IF NOT EXISTS order_item (
-    orderItemID INT NOT NULL AUTO_INCREMENT,
+/* OrderProducts Table */
+CREATE TABLE IF NOT EXISTS orderProducts (
+    orderProductID INT NOT NULL AUTO_INCREMENT,
     orderID INT NOT NULL,
     productID INT NOT NULL,
     quantity INT NOT NULL,
-    PRIMARY KEY (orderItemID),
-    FOREIGN KEY (orderID) REFERENCES `order`(orderID),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (orderProductID),
+    FOREIGN KEY (orderID) REFERENCES orders(orderID),
     FOREIGN KEY (productID) REFERENCES product(productID)
 );
 /*Badminton*/
