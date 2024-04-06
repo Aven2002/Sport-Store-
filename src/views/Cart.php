@@ -144,6 +144,7 @@ function placeOrder($info, $cart)
         header("Location: errorPage.php?error=$errorMessage");
     }
     mysqli_close($conn);
+    $_SESSION["SuccessOrder"] = true;
     header("Location: successPage.php");
     exit();
 }

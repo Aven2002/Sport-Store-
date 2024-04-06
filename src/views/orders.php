@@ -21,7 +21,7 @@
     } else {
         include("../../database.php");
         try {
-            $sql_orders = "SELECT * FROM orders WHERE userID = ?";
+            $sql_orders = "SELECT * FROM orders WHERE userID = ? ORDER BY orderID DESC";
             $stmt_orders = mysqli_prepare($conn, $sql_orders);
             mysqli_stmt_bind_param($stmt_orders, "i", $UID);
             mysqli_stmt_execute($stmt_orders);

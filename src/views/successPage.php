@@ -13,8 +13,11 @@
 <body>
     <?php
     session_start();
-    if (!isset($_SESSION["UID"])) {
+    if (!isset($_SESSION["UID"]) || !isset($_SESSION["SuccessOrder"])) {
         header("Location: index.php");
+    }
+    if (isset($_SESSION["SuccessOrder"])){
+        unset($_SESSION['SuccessOrder']);
     }
     ?>
     <?php include("../../src/includes/header.php"); ?>
