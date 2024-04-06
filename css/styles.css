@@ -141,3 +141,27 @@ button[no-shadow]{
     text-wrap: nowrap;
     overflow: hidden;
 }
+
+.no-products-list{
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-surface-600);
+}
+.no-products-list h2{
+    margin: 0;
+    margin-bottom: 5px;
+}
+.no-products-list>img{
+    width: 30vw;
+    aspect-ratio: 1/1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 768.9px) {
+    .no-products-list{
+        flex-direction: column;
+    }
+}

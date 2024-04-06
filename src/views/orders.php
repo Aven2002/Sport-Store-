@@ -68,39 +68,51 @@
     <?php include("../../src/includes/header.php"); ?>
     <?php include("../../src/includes/navigation.html"); ?>
     <main class="page-margin">
-        <h1> Orders</h1>
-        <?php foreach ($orders as $order) : ?>
-            <div class="order-box">
-                <div class="info">
-                    <div>
-                    <h3><strong>Order ID# <?php echo $order['orderID']; ?></strong></h3>
-                    <p>Date: <?php echo date('F j, Y', strtotime($order['created_at'])); ?></p>
+        <?php if (count($orders) > 0) : ?>
+            <h1> Orders</h1>
+            <?php foreach ($orders as $order) : ?>
+                <div class="order-box">
+                    <div class="info">
+                        <div>
+                            <h3><strong>Order ID# <?php echo $order['orderID']; ?></strong></h3>
+                            <p>Date: <?php echo date('F j, Y', strtotime($order['created_at'])); ?></p>
+                        </div>
+                        <p>Total Price: RM <?php echo number_format($order['totalPrice'], 2, ".", ""); ?></p>
                     </div>
-                    <p>Total Price: RM <?php echo number_format($order['totalPrice'], 2, ".", ""); ?></p>
-                </div>
 
 
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($order['products'] as $product) : ?>
+                    <table width="100%">
+                        <thead>
                             <tr>
-                                <td class="product-name"><?php echo $product['productName']; ?></td>
-                                <td><?php echo $product['quantity']; ?></td>
-                                <td>RM <?php echo number_format($product['productPrice'], 2, ".", ""); ?></td>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($order['products'] as $product) : ?>
+                                <tr>
+                                    <td class="product-name"><?php echo $product['productName']; ?></td>
+                                    <td><?php echo $product['quantity']; ?></td>
+                                    <td>RM <?php echo number_format($product['productPrice'], 2, ".", ""); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="no-products-list">
+                <img src="../../assets/img/empty-box.png" alt="">
+                <div>
+                    <h2>You do not have order yet!</h2>
+                    <a href="ItemList.php">
+                        <button primary>Continue Shopping</button>
+                    </a>
+                </div>
             </div>
-            <hr>
-        <?php endforeach; ?>
+        <?php endif; ?>
     </main>
     <?php include("../../src/includes/footer.html") ?>
 </body>
