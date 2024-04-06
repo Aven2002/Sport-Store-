@@ -1,0 +1,18 @@
+.page-margin{
+    margin-top: 3vh;
+    text-align: center;
+    /* min-height: 40vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+a>button{
+    padding: 10px 15px;
+}
