@@ -135,7 +135,10 @@ function getBrands($conn, $cat)
     $brands = [];
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
-        $brands[] = $row['productBrand'];
+        $value = trim($row["productBrand"]);
+        if(!in_array($value, $brands)) {
+            $brands[] = $row['productBrand'];
+        }
     }
     mysqli_free_result($result);
     return $brands;
@@ -167,7 +170,7 @@ function getBrands($conn, $cat)
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-                <button type="submit" primary>Filter</button>
+                <button type="submit" secondary transparent primary-hover>Filter &#8981;</button>
             </form>
             <?php if (count($products) > 0) : ?>
                 <div class="product-container">
@@ -242,15 +245,6 @@ function getBrands($conn, $cat)
             minInput.value = parseInt(maxInput.value) - 1;
         }
     });
-
-    const checkMinMax = ()=>{
-        if(parseInt(minInput.value) > parseInt(maxInput.value)) {
-            maxInput.value = parseInt(minInput.value) + 1;
-            form.submit();
-        }
-    };
-
-    checkMinMax();
 
 </script>
 

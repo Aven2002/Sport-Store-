@@ -136,7 +136,7 @@ if (!empty($UID) && !empty($PID) && $_SERVER["REQUEST_METHOD"] == "POST") {
 							<p class="m-0">Type: <?php echo $product['productType']; ?></p>
 						</div>
 					<?php endif; ?>
-					<p class="product-desc"><?php echo $product['productDetails']; ?></p>
+					<p class="product-desc"><?php echo  nl2br($product['productDetails']) ?></p>
 				</section>
 			</div>
 		<?php else : ?>
