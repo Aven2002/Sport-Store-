@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     PRIMARY KEY (userID),
     UNIQUE INDEX username_UNIQUE (username ASC)
 );
+/*Product Table*/
 CREATE TABLE IF NOT EXISTS product (
     productID INT NOT NULL AUTO_INCREMENT,
     productName VARCHAR(80) NOT NULL,
@@ -48,6 +49,24 @@ CREATE TABLE IF NOT EXISTS feedback (
     message TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (feedbackID)
+);
+/* Order Table */
+CREATE TABLE IF NOT EXISTS `order` (
+    orderID INT NOT NULL AUTO_INCREMENT,
+    userID INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (orderID),
+    FOREIGN KEY (userID) REFERENCES user_account(userID)
+);
+/* Order Items Table */
+CREATE TABLE IF NOT EXISTS order_item (
+    orderItemID INT NOT NULL AUTO_INCREMENT,
+    orderID INT NOT NULL,
+    productID INT NOT NULL,
+    quantity INT NOT NULL,
+    PRIMARY KEY (orderItemID),
+    FOREIGN KEY (orderID) REFERENCES `order`(orderID),
+    FOREIGN KEY (productID) REFERENCES product(productID)
 );
 /*Badminton*/
 INSERT INTO product (
