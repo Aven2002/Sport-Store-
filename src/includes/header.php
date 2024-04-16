@@ -17,6 +17,7 @@
     <div class="dropdown">
       <button class="dropbtn">Account &#9662;</button>
       <div class="dropdown-content">
+        <?php session_start()?>
         <?php if(isset($_SESSION["UID"])) { ?>
         <p>
           User ID:
