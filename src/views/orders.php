@@ -66,7 +66,7 @@
     }
     ?>
     <?php include("../../src/includes/header.php"); ?>
-    <?php include("../../src/includes/navigation.html"); ?>
+    <?php include("../../src/includes/navigation.php"); ?>
     <main class="page-margin">
         <?php if (count($orders) > 0) : ?>
             <h1> Orders</h1>

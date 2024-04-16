@@ -226,7 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include("../../src/includes/header.php"); ?>
-    <?php include("../../src/includes/navigation.html"); ?>
+    <?php include("../../src/includes/navigation.php"); ?>
     <main>
         <?php if (!empty($cart)) : ?>
             <h1 class="text-center">Your Cart</h1>

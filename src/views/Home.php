@@ -11,7 +11,7 @@
 <body>
     <?php include("../includes/header.php");?>
     <nav>
-        <?php include("../includes/navigation.html");?>
+        <?php include("../includes/navigation.php");?>
     </nav>
     <main>
         <div class="carousel">

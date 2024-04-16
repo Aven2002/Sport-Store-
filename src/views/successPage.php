@@ -21,7 +21,7 @@
     }
     ?>
     <?php include("../../src/includes/header.php"); ?>
-    <?php include("../../src/includes/navigation.html"); ?>
+    <?php include("../../src/includes/navigation.php"); ?>
     <main class="page-margin">
         <h1>Order Successfully Placed!</h1>
         <p>Thank you for your order. Your order has been successfully placed.</p>

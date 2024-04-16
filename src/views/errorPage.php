@@ -12,7 +12,7 @@
 
 <body>
     <?php include("../../src/includes/header.php"); ?>
-    <?php include("../../src/includes/navigation.html"); ?>
+    <?php include("../../src/includes/navigation.php"); ?>
     <main class="page-margin">
         <h1>Error Page</h1>
         <div>
