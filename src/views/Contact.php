@@ -48,6 +48,9 @@
 </head>
 <body>
     <?php include ("../includes/header.php");?>
+    <nav>
+        <?php include("../includes/navigation.php"); ?>
+    </nav>
 <main class="contact-container">
     
     <section class="contact-info">
