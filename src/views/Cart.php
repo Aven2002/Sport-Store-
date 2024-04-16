@@ -269,7 +269,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?php echo number_format($item['productPrice'] * $item['quantity'], 2, '.', ''); ?>
                                 </td>
                                 <td>
-                                    <button danger type="button" class="removeBtn m-0" onclick="removeRow(<?php echo $index . ',\'' . $item['productName'] . '\''; ?>)">-</button>
+                                    <button danger type="button" class="removeBtn m-0" onclick="removeRow(<?php echo $index . ',\'' . htmlspecialchars($item['productName']) . '\''; ?>)">-</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
