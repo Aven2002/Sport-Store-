@@ -40,11 +40,15 @@ img.logo {
 
 .dropbtn {
     background-color: transparent;
-    color: white;
     border: none;
     cursor: pointer;
-    font-size: 16px;
     padding: 10px;
+    margin: 0;
+}
+
+.dropbtn img{
+    width: 16px;
+    aspect-ratio: 16px;
 }
 
 .dropdown-content {
@@ -60,14 +64,15 @@ img.logo {
 }
 
 .dropdown-content a {
-    color: white; /* Change link color to white */
-    padding: 12px 16px;
+    color: white; 
+    /* padding: 12px 16px; */
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content a:hover {
-    background-color: #333; /* Change hover background color */
+.dropdown-content button{
+    margin: 0;
+    width: 100%;
 }
 
 .dropdown:hover .dropdown-content {
@@ -78,8 +83,11 @@ img.logo {
     background-color: transparent;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768.9px) {
     header {
         padding: 10px;
+    }
+    header h1 {
+        font-size: 5vw;
     }
 }

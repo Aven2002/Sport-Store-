@@ -7,6 +7,10 @@
     margin: 20px auto; 
 }
 
+button{
+    margin-top: 0;
+}
+
 .carousel-items {
     display: flex;
     transition: transform 0.5s ease; 

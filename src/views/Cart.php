@@ -149,7 +149,7 @@ function placeOrder($info, $cart)
     exit();
 }
 $info = array(
-    'UID' => $UID,
+    'UID' => $isGuest?null:$UID,
     'address1' => null,
     'address2' => null,
     'city' => null,
@@ -303,7 +303,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="payment-container">
                     <p class="text-center m-0 form-title">Payment Method</p>
                     <?php echo $paymentMethodErr; ?>
-                    <input type="radio" id="creditCard" name="paymentMethod" value="Credit Card">
+                    <input type="radio" id="creditCard" name="paymentMethod" value="Credit Card" checked>
                     <label for="creditCard">Credit Card</label><br>
 
                     <input type="radio" id="onlineBanking" name="paymentMethod" value="Online Banking">

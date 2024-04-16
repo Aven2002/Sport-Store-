@@ -6,8 +6,6 @@
     <title>Landing Page</title>
     <link rel="stylesheet" href="../../css/styles.css";/>
     <link rel="stylesheet" href="../../css/Landing.css?ver=<?php echo filemtime('../../css/landing.css'); ?>">
-    <link rel="stylesheet" href="../../css/header.css?ver=<?php echo filemtime('../../css/header.css'); ?>">
-    <link rel="stylesheet" href="../../css/footer.css?ver=<?php echo filemtime('../../css/footer.css'); ?>">
 </head>
 <body>
     <?php include("../includes/header.php"); ?>
