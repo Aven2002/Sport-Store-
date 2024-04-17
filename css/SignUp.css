@@ -51,19 +51,34 @@ lable{
 
 .button-container {
     display: flex;
-    justify-content: center; 
-    margin-top: 300px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 35%;
+    margin: 0 7%;
+    float: left;
 }
-
+.signup-msg{
+    width: 100%;
+    margin: 0;
+    margin-top: 2vh;
+    font-size: small;
+    text-align: center;
+}
+.signup-msg a{
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
 @media screen and (max-width: 600px) {
     .button-container {
         display: flex;
-        justify-content: center; 
-        margin-top: 500px;
+        justify-content: space-evenly; 
+        margin: 0;
+        width: 100%;
     }
 }
 
 .back-btn i {
     font-size: 30px; 
-    color:black;
+    color:white;
 }

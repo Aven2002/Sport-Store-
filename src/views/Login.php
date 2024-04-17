@@ -19,8 +19,11 @@
         <label>Password:</label>
         <input type="password" name="password" placeholder="password" /><br>
         <div class="button-container">
-            <button type="reset">Reset</button>
-            <button type="submit">Login</button>
+            <button type="reset" secondary value="cancel">Reset</button>
+            <button type="submit" primary primary-hover >Login</button>
+        </div>
+        <div class="signup-msg">
+            You may <a href="../views/SignUp.php" primary>Sign Up</a> here!
         </div>
     </form>
 </body>
@@ -29,7 +32,10 @@
 <?php
 // Start the session
 session_start();
-
+$UID = !isset($_SESSION["UID"]) ? null : $_SESSION["UID"];
+if (!empty($UID)) {
+    header("Location: ../views/Home.php");
+}
 // Include database connection file
 include("../../database.php");
 

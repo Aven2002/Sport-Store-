@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="../../css/styles.css";/>
     <link rel="stylesheet" href="../../css/Landing.css?ver=<?php echo filemtime('../../css/landing.css'); ?>">
 </head>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+  $UID = !isset($_SESSION["UID"]) ? null : $_SESSION["UID"];
+  if (!empty($UID)) {
+    header("Location: ../views/Home.php");
+  }
+?>
 <body>
     <?php include("../includes/header.php"); ?>
     <?php include("../includes/navigation.php");?>
