@@ -108,7 +108,7 @@ function placeOrder($info, $cart)
 {
     include("../../database.php");
     try {
-        if(count($cart) == 0) {
+        if (count($cart) == 0) {
             throw new Exception("no products in cart!");
         }
         $totalPrice = 0.0;
@@ -149,7 +149,7 @@ function placeOrder($info, $cart)
     exit();
 }
 $info = array(
-    'UID' => $isGuest?null:$UID,
+    'UID' => $isGuest ? null : $UID,
     'address1' => null,
     'address2' => null,
     'city' => null,
@@ -287,17 +287,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php echo $address1Err; ?>
                     <input type="text" name="address1" class="address1" placeholder="Address 1"><br>
                     <input type="text" name="address2" class="address2" placeholder="Address 2">
-                    <?php echo $cityErr; ?>
-                    <?php echo $postcodeErr; ?>
+
+
                     <div class="pair-container">
-                        <input type="text" name="city" class="city" placeholder="City">
-                        <input type="number" name="postcode" class="postcode" maxlength="5" placeholder="Postcode">
+                        <div>
+                            <?php echo $cityErr; ?>
+                            <input type="text" name="city" class="city" placeholder="City">
+                        </div>
+                        <div>
+                            <?php echo $postcodeErr; ?>
+                            <input type="number" name="postcode" class="postcode" maxlength="5" placeholder="Postcode">
+                        </div>
                     </div>
-                    <?php echo $stateErr; ?>
-                    <?php echo $countryErr; ?>
+
+
                     <div class="pair-container">
-                        <input type="text" name="state" class="state" placeholder="State">
-                        <input type="text" name="country" class="country" placeholder="Country">
+                        <div>
+                            <?php echo $stateErr; ?>
+                            <input type="text" name="state" class="state" placeholder="State">
+                        </div>
+                        <div>
+                            <?php echo $countryErr; ?>
+                            <input type="text" name="country" class="country" placeholder="Country">
+                        </div>
                     </div>
                 </div>
                 <div class="payment-container">
@@ -488,8 +500,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     });
 
     // need to remove the submit default function and change to open the confirmation dialog
-    const placeOrderBtn =  document.querySelector(".placeOrderBtn");
-    if(placeOrderBtn) placeOrderBtn.addEventListener("click", () => {
+    const placeOrderBtn = document.querySelector(".placeOrderBtn");
+    if (placeOrderBtn) placeOrderBtn.addEventListener("click", () => {
         placeOrderDialog.showModal();
     })
 </script>
