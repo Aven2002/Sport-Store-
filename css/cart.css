@@ -181,6 +181,8 @@ td.empty-class{
 .guestPage>img{
     height: 40vw;
     width: 40vw;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 @media screen and (max-width: 768.9px) {

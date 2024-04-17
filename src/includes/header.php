@@ -17,7 +17,7 @@
           session_start();
         }
         $UID = !isset($_SESSION["UID"]) ? null : $_SESSION["UID"];
-        if ($UID) {
+        if (!empty($UID)) {
           include("../../database.php");
           try {
             $sql_orders = "SELECT COUNT(*) FROM orders WHERE userID = ?";
