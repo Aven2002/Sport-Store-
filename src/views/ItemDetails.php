@@ -35,6 +35,7 @@ if (!empty($PID) && is_numeric(trim($_GET['id']))) {
 
 if (!empty($UID) && !empty($PID) && $_SERVER["REQUEST_METHOD"] == "POST") {
 	echo "<script>console.log(1111 )</script>";
+	$quantity = $_POST['quantity'];
 	if (!is_numeric($quantity)) {
 		$quantityErr = "Invalid Number";
 	} else {
@@ -111,7 +112,7 @@ if (!empty($UID) && !empty($PID) && $_SERVER["REQUEST_METHOD"] == "POST") {
 					<form action="" method="post">
 						<div class="qty-box">
 							<button type="button" secondary transparent no-shadow class='quantity-btn m-0' product-id='<?php echo $product['productID']; ?>' operation='minus'>-</button>
-							<input inputmode="numeric" type="text" class="qtyInput" size="5" value="<?php echo $quantity; ?>">
+							<input inputmode="numeric" type="text" class="qtyInput" name="quantity" size="5" value="<?php echo $quantity; ?>">
 							<button type="button" secondary transparent no-shadow class='quantity-btn m-0' product-id='<?php echo $product['productID']; ?>' operation='plus'>+</button>
 						</div>
 

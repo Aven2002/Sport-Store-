@@ -235,14 +235,17 @@ function getBrands($conn, $cat)
     const maxInput = document.getElementById('max');
 
     minInput.addEventListener('change', function() {
-        if(parseInt(minInput.value) > parseInt(maxInput.value)) {
+        if(parseInt(minInput.value) > parseInt(maxInput.value) && maxInput.value != 0) {
             maxInput.value = parseInt(minInput.value) + 1;
         }
     });
 
     maxInput.addEventListener('change', function() {
+        console.log(minInput.value)
         if(parseInt(maxInput.value) < parseInt(minInput.value)) {
-            minInput.value = parseInt(maxInput.value) - 1;
+            let value = parseInt(maxInput.value) - 1
+            if(value < 0)value = 0;
+            minInput.value = value;
         }
     });
 

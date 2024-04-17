@@ -64,7 +64,8 @@
           </form>
         <?php else : ?>
           <p>Not logged in</p>
-          <a href="../views/Login.php"><button primary>Log In</button></a>
+          <a href="../views/Login.php"><button primary>Login</button></a>
+          <a href="../views/SignUp.php"><button secondary>Sign Up</button></a>
         <?php endif; ?>
 
       </div>

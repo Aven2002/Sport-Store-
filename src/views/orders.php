@@ -76,6 +76,7 @@
                         <div>
                             <h3><strong>Order ID# <?php echo $order['orderID']; ?></strong></h3>
                             <p>Date: <?php echo date('F j, Y', strtotime($order['created_at'])); ?></p>
+                            <p>Payment Method: <?php echo $order['paymentMethod']; ?></p>
                         </div>
                         <p>Total Price: RM <?php echo number_format($order['totalPrice'], 2, ".", ""); ?></p>
                     </div>
