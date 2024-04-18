@@ -77,15 +77,6 @@ CREATE TABLE IF NOT EXISTS order_product (
     FOREIGN KEY (orderID) REFERENCES orders(orderID),
     FOREIGN KEY (productID) REFERENCES product(productID)
 );
-/*Demo User Account*/
-INSERT INTO user_account (fullName, email, contactNum, username, password)
-VALUES (
-        'Demo User',
-        'demo@example.com',
-        '0102223333',
-        'user',
-        'user123'
-    );
 /*Pre-defined Products*/
 INSERT INTO product (
         productName,
