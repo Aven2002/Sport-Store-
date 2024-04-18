@@ -18,7 +18,6 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <body>
     <?php include("../includes/header.php"); ?>
-    <?php include("../includes/navigation.php");?>
     <main>
         <h2>Experience the Excellence of Sport Store Web</h2>
         <p>
