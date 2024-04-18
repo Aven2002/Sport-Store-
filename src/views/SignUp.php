@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/styles.css?ver=<?php echo filemtime('../../css/styles.css'); ?>">
 </head>
 <body>
-    <form id="signupForm" action="SignUp.php" method="post">
+<form id="signupForm" action="SignUp.php" method="post" onsubmit="return validateForm()">
         <a href="index.php" class="back-btn">
             <i class="fas fa-angle-double-left"></i>
         </a>
@@ -38,8 +38,58 @@
             You may <a href="../views/Login.php" primary>Login</a> here!
         </div>
         </div>
-
     </form>
+    <script>
+
+    // Validatation Methods
+    function validateFullName(fullName) {
+        var regex = /^[A-Z||a-z]+\s[A-Z||a-z]+$/;
+        return regex.test(fullName);
+    }
+    function validateEmail(email) {
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+    function validatePassword(password) {
+        var regex = /^(?=.*[a-z]||[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        return regex.test(password);
+    }
+    function validateContactNumber(contactNum) {
+        var regex = /^\d{3}-\d{3}-\d{4}$/;
+        return regex.test(contactNum);
+    }
+
+    // Validate Submission
+    function validateForm() {
+    var fullName = document.getElementsByName("fullName")[0].value;
+    var email = document.getElementsByName("email")[0].value;
+    var password = document.getElementsByName("password")[0].value;
+    var contactNum = document.getElementsByName("contactNum")[0].value;
+
+        if (!validateFullName(fullName)) {
+            alert("Full name format is invalid. Please enter in the format: Firstname Lastname");
+            return false;
+        }
+
+        if (!validateEmail(email)) {
+            alert("Email format is invalid. Please enter a valid email address.");
+            return false;
+        }
+
+        if (!validatePassword(password)) {
+            alert("Password format is invalid. It must be at least 8 characters long, and at least one special character.");
+            return false;
+        }
+
+        if (!validateContactNumber(contactNum)) {
+            alert("Contact number format is invalid. Please enter in the format: xxx-xxx-xxxx");
+            return false;
+        }
+
+        return true; 
+    }
+</script>
+
 </body>
 </html>
 
@@ -49,6 +99,7 @@ $UID = !isset($_SESSION["UID"]) ? null : $_SESSION["UID"];
 if (!empty($UID)) {
     header("Location: ../views/Home.php");
 }
+
 // Obtain Connection
 include("../../database.php");
 
@@ -60,35 +111,46 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     !empty($_POST["fullName"]) && !empty($_POST["email"]) &&
     !empty($_POST["contactNum"]))
     {
-        // Process form submission
-        $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        $password = mysqli_real_escape_string($conn, $_POST["password"]);
-        $fullName = mysqli_real_escape_string($conn, $_POST["fullName"]);
-        $email = mysqli_real_escape_string($conn, $_POST["email"]);
-        $contactNum = mysqli_real_escape_string($conn, $_POST["contactNum"]);
+        try {
+            // Process form submission
+            $username = mysqli_real_escape_string($conn, $_POST["username"]);
+            $password = mysqli_real_escape_string($conn, $_POST["password"]);
+            $fullName = mysqli_real_escape_string($conn, $_POST["fullName"]);
+            $email = mysqli_real_escape_string($conn, $_POST["email"]);
+            $contactNum = mysqli_real_escape_string($conn, $_POST["contactNum"]);
 
-        // Hash password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            // Hash password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insert into database
-        $sql = "INSERT INTO user_account (username, password, fullName, email, contactNum) VALUES (?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
+            // Insert into database
+            $sql = "INSERT INTO user_account (username, password, fullName, email, contactNum) VALUES (?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($conn, $sql);
 
-        // Bind parameters
-        mysqli_stmt_bind_param($stmt, "sssss", $username, $hashed_password, $fullName, $email, $contactNum);
-        mysqli_stmt_execute($stmt);
+            // Bind parameters
+            mysqli_stmt_bind_param($stmt, "sssss", $username, $hashed_password, $fullName, $email, $contactNum);
+            mysqli_stmt_execute($stmt);
 
-        // Check if user account was created successfully
-        if (mysqli_stmt_affected_rows($stmt) > 0) {
-            echo '<script>alert("User account created successfully.");</script>';
-            echo '<script>window.location.href = "index.php";</script>'; 
-            exit();
-        } else {
-            echo '<script>alert("Error creating user account.");</script>';
+            // Check if user account was created successfully
+            if (mysqli_stmt_affected_rows($stmt) > 0) {
+                echo '<script>alert("User account created successfully.");</script>';
+                echo '<script>window.location.href = "index.php";</script>'; 
+                exit();
+            } else {
+                echo '<script>alert("Error creating user account.");</script>';
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        } catch (mysqli_sql_exception $exception) {
+            // Check if the error code indicates a duplicate entry error
+            if ($exception->getCode() === 1062) {
+                echo '<script>alert("Username is taken by existing member, kindly modify the username");</script>';
+            } else {
+                echo '<script>alert("An error occurred while processing your request.");</script>';
+            }
         }
-
-        // Close statement and connection
-        mysqli_stmt_close($stmt);
+        
+        // Close connection
         mysqli_close($conn);
     }
     else {
@@ -97,6 +159,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 }
 ?>
+
 
 
 
