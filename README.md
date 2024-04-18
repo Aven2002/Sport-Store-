@@ -18,7 +18,7 @@ Sport Store is a web application designed to provide users with a convenient pla
 
 5. Run Localhost to interact with the system.
 
-## Sample Data
+## Pre- defined Data
 
 ### Product Table
 
