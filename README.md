@@ -17,3 +17,9 @@ Sport Store is a web application designed to provide users with a convenient pla
 4. Run phpMyAdmin to import the db.sql to create database and tables.
 
 5. Run Localhost to interact with the system.
+
+## Sample Data
+
+### Product Table
+
+- **Products:** 65 products
