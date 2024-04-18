@@ -70,13 +70,12 @@ button:hover {
 @media screen and (max-width: 600px) {
     #sport-image {
         position: relative; 
-        width: 80%;
+        width: 100%;
         height: auto;
         text-align:center;
-        margin: 50px auto; /* Center the image horizontally */
     }
     #button {
-        text-align: center; /* Center align buttons */
+        text-align: center; 
         margin-bottom: 20px; 
     }
 }

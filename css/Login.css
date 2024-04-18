@@ -9,56 +9,74 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0; 
+    color: white; 
+    font-family: Arial, sans-serif; 
 }
 
 h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: white; 
 }
 
 form {
-    width: 500px;
-    border: 2px solid rgb(255, 255, 255); 
+    width: 90%; 
+    max-width: 500px; 
+    border: 2px solid white; 
     padding: 30px;
-    background-color: black; 
+    background-color: rgba(0, 0, 0, 0.7); 
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
 }
 
 input {
     display: block;
-    width: 95%;
-    padding: 10px;
-    margin: 10px auto;
+    width: 100%;
+    padding: 12px; 
+    margin: 10px 0; 
+    border: 1px solid white; 
     border-radius: 5px;
-    background-color: transparent; 
+    background-color: rgba(255, 255, 255, 0.1); 
     color: white; 
+    box-sizing: border-box; 
 }
 
 label {
     font-size: 18px;
     padding: 10px;
+    display: block;
 }
 
 .back-btn i {
     font-size: 30px; 
-    color: white; /* Change button color to white */
+    color:aliceblue;
 }
 
 .button-container {
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-around; 
 }
 
-.signup-msg{
-    margin: 0;
-    margin-top: 2vh;
-    font-size: small;
+.button-container button {
+    padding: 12px 20px; 
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-primary); 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.button-container button:hover {
+    background-color: lightskyblue;
+}
+
+.signup-msg {
+    margin-top: 40px; 
+    font-size: 14px; 
     text-align: center;
 }
-.signup-msg a{
-    color: var(--color-primary);
+
+.signup-msg a {
+    color: #3586ff; 
     text-decoration: none;
-    cursor: pointer;
 }
