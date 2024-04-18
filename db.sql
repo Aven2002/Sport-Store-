@@ -1,5 +1,6 @@
 /*Check if the database exists*/
-CREATE DATABASE IF NOT EXISTS Sport_Store;
+DROP DATABASE IF EXISTS Sport_Store;
+CREATE DATABASE Sport_Store;
 /*Use the database*/
 USE Sport_Store;
 /*User Account Table*/
@@ -76,7 +77,16 @@ CREATE TABLE IF NOT EXISTS order_product (
     FOREIGN KEY (orderID) REFERENCES orders(orderID),
     FOREIGN KEY (productID) REFERENCES product(productID)
 );
-/*Badminton*/
+/*Demo User Account*/
+INSERT INTO user_account (fullName, email, contactNum, username, password)
+VALUES (
+        'Demo User',
+        'demo@example.com',
+        '0102223333',
+        'user',
+        'user123'
+    );
+/*Pre-defined Products*/
 INSERT INTO product (
         productName,
         productCategory,
