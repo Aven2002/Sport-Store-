@@ -45,6 +45,7 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="../../css/Contact.css?ver=<?php echo filemtime('../../css/Contact.css'); ?>">
     <link rel="stylesheet" href="../../css/header.css?ver=<?php echo filemtime('../../css/header.css'); ?>">
+    <link rel="stylesheet" href="../../css/styles.css?ver=<?php echo filemtime('../../css/styles.css'); ?>">
 </head>
 <body>
     <?php include ("../includes/header.php");?>
@@ -56,9 +57,9 @@
     <section class="contact-info">
     <img src="/Sport-Store-/assets/img/contactLogo.png" class="contact-logo"> 
         <h2>Contact Information</h2>
-        <p><strong>Email:</strong> example@example.com</p>
-        <p><strong>Phone:</strong> +123-456-7890</p>
-        <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+        <p><strong>Email:</strong> sportStoreSystem@service.com</p>
+        <p><strong>Phone:</strong> +03-9011-2945</p>
+        <p><strong>Address:</strong> Sport Store, Jalan Professor Khoo Kay Kim, Seksyen 13, 46200 Petaling Jaya, Selangor </p>
     </section>
     <section class="contact-form">
         <h2>Send us a message</h2>
@@ -88,8 +89,7 @@
             <label for="message">Feedback:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
             <div id="charCount"></div>
-
-            <button id="submitButton" type="submit">Submit Feedback</button>
+            <button type="submit" class="success" id="submitButton">Submit Feedback</button>
             <div id="errorMessage" style="color: red;"></div>
         </form>
     </section>

@@ -37,6 +37,7 @@
     box-shadow: none; /* Remove box shadow */
     width: 80%;
     max-width: 600px;
+    margin:10px;
 }
 
 /* Style for the form labels */
@@ -45,6 +46,7 @@
     margin-bottom: 5px;
     font-weight: bold;
     color: white; /* Change text color to white */
+    margin-top:10px;
 }
 
 /* Style for the form inputs and textarea */
@@ -56,8 +58,8 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: transparent; /* Make background transparent */
-    color: white; /* Change text color to white */
+    background-color: transparent; 
+    color: white; 
 }
 
 /* Style for the category dropdown */
@@ -67,22 +69,25 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: transparent; /* Make background transparent */
-    color: white; /* Change text color to white */
+    background-color: transparent;
+    color: white; 
 }
 
-/* Style for the submit button */
-.contact-form #submitButton {
+button.success {
     background-color: #04bc1c;
     color: white;
-    padding: 15px 50px;
+    padding: 12px 40px; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 20px auto; /* Center horizontally */
-    display: block; /* Ensure block-level behavior */
+    margin: 20px auto; 
+    display: block; 
 }
+button.success:hover {
+    background-color: #45a049;
+}
+
 
 .contact-form #submitButton:disabled {
     background-color: #cccccc;
@@ -125,8 +130,9 @@
 }
 
 body {
-    background-color: #121212; /* Change body background color */
-    color: white; /* Change text color to white */
+    background-color: #121212; 
+    color: white; 
+    font-family: Arial, sans-serif; 
 }
 
 
