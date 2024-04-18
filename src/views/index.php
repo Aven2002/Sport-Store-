@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="../../css/styles.css";/>
-    <link rel="stylesheet" href="../../css/Landing.css?ver=<?php echo filemtime('../../css/landing.css'); ?>">
+    <link rel="stylesheet" href="../../css/index.css?ver=<?php echo filemtime('../../css/index.css'); ?>">
 </head>
 <?php
 if (session_status() === PHP_SESSION_NONE) {
@@ -31,6 +31,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <li>💼 Extensive Product Catalog</li>
             <li>🌍 Simplify Your Decision-making Process</li>
         </ul>
+
         <div id="button">
             <a href="Login.php"><button primary>Login</button></a>
             <a href="SignUp.php"><button secondary>Sign up</button></a>
