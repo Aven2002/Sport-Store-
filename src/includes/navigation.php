@@ -23,6 +23,7 @@ echo "<script>console.log(cats);</script>";
       <div class="navDropBtn m-0">Products <?php if (!empty($cats)) echo '&#9662'; ?></div>
       <?php if (!empty($cats)) : ?>
       <div class="nav-content">
+      <a href="../views/ItemList.php">All Categories</a> 
         <?php foreach ($cats as $cat) : ?>
           <a href="../views/ItemList.php?cat=<?php echo $cat ?>"><?php echo $cat ?></a>
           <?php endforeach; ?>
