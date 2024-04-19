@@ -9,7 +9,7 @@
   <div class="right-section">
     <div class="dropdown">
       <button class="dropbtn">
-        <img src="../../assets/person.png" alt="Account Image">
+        <img src="../../assets/img/person.png" alt="Account Image">
         &#9662;</button>
       <div class="dropdown-content">
         <?php
