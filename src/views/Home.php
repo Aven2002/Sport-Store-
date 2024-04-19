@@ -59,9 +59,7 @@ if (isset($_SESSION['UID']) && isset($_POST['addToCart'])) {
 
 <body>
     <?php include("../includes/header.php"); ?>
-    <nav>
         <?php include("../includes/navigation.php"); ?>
-    </nav>
     <main>
         <div class="carousel">
             <div class="carousel-items">
